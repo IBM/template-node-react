@@ -1,25 +1,36 @@
 {
   "name": "catalyst-webui-react",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A generated IBM Cloud application",
   "private": true,
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+  "engines": {
+    "node": "^8.11.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server/server.js",
+    "debug": "chmod +x run-debug && ./run-debug",
+    "test": "nyc mocha --exit",
+    "dev": "nodemon server/server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "nodemonConfig": {
+    "env": {
+      "NODE_HEAPDUMP_OPTIONS": "nosignal"
+    }
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "dependencies": {
+    "appmetrics-dash": "^4.0.0",
+    "appmetrics-prometheus": "^2.0.0",
+    "appmetrics-zipkin": "^1.0.4",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "ibm-cloud-env": "^0",
+    "log4js": "^3.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "chai": "^4.0.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  }
 }

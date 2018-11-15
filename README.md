@@ -1,44 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## catalyst-webui-react
 
-## Available Scripts
+Basic Web project with ExpressJS on NodeJS
 
-In the project directory, you can run:
+[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
+![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
 
-### `npm start`
+### Table of Contents
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Summary](#summary)
+- [Requirements](#requirements)
+- [Configuration](#configuration)
+- [Run](#run)
+- [Debug](#debug)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<a name="summary"></a>
 
-### `npm test`
+### Summary
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Web basic starter contains an opinionated set of files for web serving:
 
-### `npm run build`
+- `public/index.html`
+- `public/404.html`
+- `public/500.html`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<a name="enablement"></a>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### IBM Cloud Enablement
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a name="requirements"></a>
 
-### `npm run eject`
+### Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Local Development Tools Setup (optional)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Install the latest [NodeJS](https://nodejs.org/en/download/) 6+ LTS version.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### IBM Cloud development tools setup (optional)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Install [IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/setting_up_idt.html#add-cli) on your machine
+2. Install the plugin with: `bx plugin install dev -r bluemix`
 
-## Learn More
+#### IBM Cloud DevOps setup (optional)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. The "Create Toolchain" button creates a DevOps toolchain and acts as a single-click deploy to IBM Cloud including provisioning all required services.
+
+**\*Note** you must publish your project to [Github](https://github.com/) for this to work.
+
+<a name="configuration"></a>
+
+### Configuration
+
+The project contains IBM Cloud specific files that are used to deploy the application as part of an IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment, and which services to bind to.
+
+Service credentials are taken from the VCAP_SERVICES environment variable if running IBM Cloud Cloud Foundry, from individual environment variables per service if running on IBM Cloud Container Service (see ./server/config/mappings.json), or from a config file if running locally, named`./server/config/localdev-config.js`.
+
+<a name="run"></a>
+
+### Run
+
+#### Using IBM Cloud development CLI
+
+The IBM Cloud development plugin makes it easy to compile and run your application if you do not have all of the tools installed on your computer yet. Your application will be compiled with Docker containers. To compile and run your app, run:
+
+```bash
+bx dev build
+bx dev run
+```
+
+#### Using your local development environment
+
+##### Endpoints
+
+Your application is running at: `http://localhost:3000/` in your browser.
+
+- Health endpoint: `/appmetrics-dash`
+
+##### Session Store
+
+You may see this warning when running `bx dev run`:
+
+```
+Warning: connect.session() MemoryStore is not
+designed for a production environment, as it will leak
+memory, and will not scale past a single process.
+```
+
+When deploying to production, it is best practice to configure sessions to be stored in an external persistence service.
+
+<a name="debug"></a>
+
+### Debug
+
+#### Using IBM Cloud development CLI
+
+To build and debug your app, run:
+
+```bash
+bx dev build --debug
+bx dev debug
+```
