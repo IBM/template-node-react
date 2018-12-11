@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import RawUIShell from "./components/RawUIShell";
+import { Button } from "carbon-components-react";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            IBM cloud garage catalyst  react ui
-          </p>
-          
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <p>IBM cloud garage catalyst react ui</p>
+          <br />
+          <Button> A Carbon Button: Catalyst REACT UI </Button>
+
+          <RawUIShell />
         </header>
       </div>
     );

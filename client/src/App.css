@@ -1,3 +1,9 @@
+$feature-flags: (
+  components-x: true,
+  ui-shell: true
+);
+@import "../../node_modules/carbon-components/src/globals/scss/styles";
+
 .App {
   text-align: center;
 }

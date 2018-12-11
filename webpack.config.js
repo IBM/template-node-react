@@ -21,9 +21,13 @@ module.exports = {
           }
         }
       },
+      // {
+      //   test: [/\.css$/],
+      //   use: ["style-loader", "css-loader"]
+      // },
       {
-        test: [/\.css$/],
-        use: ["style-loader", "css-loader"]
+        test: [/\.scss$/, /\.css$/],
+        loader: "style-loader!css-loader!sass-loader"
       },
 
       {
