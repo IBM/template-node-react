@@ -1,5 +1,10 @@
 ## catalyst-webui-react
 
+npm install
+npm run build
+npm run start
+//check http://localhost:8080/
+
 Basic Web project with ExpressJS on NodeJS
 
 [![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
