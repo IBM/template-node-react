@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Button } from "carbon-components-react";
+import UIShellBody from "./UIShellBody";
 
-class RawUIShell extends Component {
+class UIShell extends Component {
   render() {
     return (
       <div>
-        {/* <Button> This is for raw UIShell </Button> */}
         <header
           class="bx--header"
           role="banner"
@@ -707,12 +706,11 @@ class RawUIShell extends Component {
           </div>
         </aside>
         <div class="bx--content">
-          <h1>This would be the body for the selected pattern.</h1>
-          <h2>Description...</h2>
+          <UIShellBody />
         </div>
       </div>
     );
   }
 }
 
-export default RawUIShell;
+export default UIShell;
