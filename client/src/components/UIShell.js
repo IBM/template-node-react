@@ -2,6 +2,51 @@ import React, { Component } from "react";
 import UIShellBody from "./UIShellBody";
 
 class UIShell extends Component {
+  renderLeftNavItemEven = label => {
+    return (
+      <li class="bx--side-nav__item ">
+        <a class="bx--side-nav__link" href="javascript:void(0)">
+          <div class="bx--side-nav__icon bx--side-nav__icon--small">
+            <svg
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+              <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
+            </svg>
+          </div>
+          <span class="bx--side-nav__link-text">{label}</span>
+        </a>
+      </li>
+    );
+  };
+  renderLeftNavItemOdd = label => {
+    return (
+      <li class="bx--side-nav__item bx--side-nav__item--active">
+        <a
+          class="bx--side-nav__link"
+          href="javascript:void(0)"
+          aria-current="page"
+        >
+          <div class="bx--side-nav__icon bx--side-nav__icon--small">
+            <svg
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+              <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
+            </svg>
+          </div>
+          <span class="bx--side-nav__link-text">{label}</span>
+        </a>
+      </li>
+    );
+  };
+
   render() {
     return (
       <div>
@@ -31,149 +76,9 @@ class UIShell extends Component {
           </button>
           <a class="bx--header__name" href="#" title="">
             <span class="bx--header__name--prefix">IBM &nbsp;</span>
-            [Platform]
+            Cloud Garage Catalyst
           </a>
 
-          <nav
-            class="bx--header__nav"
-            aria-label="Platform Name"
-            data-header-nav
-          >
-            <ul
-              class="bx--header__menu-bar"
-              role="menubar"
-              aria-label="Platform Name"
-            >
-              <li>
-                <a
-                  class="bx--header__menu-item"
-                  href="javascript:void(0)"
-                  role="menuitem"
-                  tabindex="0"
-                >
-                  L1 link 1
-                </a>
-              </li>
-              <li>
-                <a
-                  class="bx--header__menu-item"
-                  href="javascript:void(0)"
-                  role="menuitem"
-                  tabindex="0"
-                >
-                  L1 link 2
-                </a>
-              </li>
-              <li class="bx--header__submenu" data-header-submenu>
-                <a
-                  class="bx--header__menu-item bx--header__menu-title"
-                  role="menuitem"
-                  aria-haspopup="true"
-                  aria-expanded="true"
-                  href="javascript:void(0)"
-                  tabindex="0"
-                >
-                  L1 link 3
-                  <svg
-                    class="bx--header__menu-arrow"
-                    width="12"
-                    height="7"
-                    aria-hidden="true"
-                  >
-                    <path d="M6.002 5.55L11.27 0l.726.685L6.003 7 0 .685.726 0z" />
-                  </svg>
-                </a>
-                <ul class="bx--header__menu" role="menu" aria-label="L1 link 3">
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">Link 1</span>
-                    </a>
-                  </li>
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">Link 2</span>
-                    </a>
-                  </li>
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">
-                        Ipsum architecto voluptatem
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="bx--header__submenu" data-header-submenu>
-                <a
-                  class="bx--header__menu-item bx--header__menu-title"
-                  role="menuitem"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  href="javascript:void(0)"
-                  tabindex="0"
-                >
-                  L1 link 4
-                  <svg
-                    class="bx--header__menu-arrow"
-                    width="12"
-                    height="7"
-                    aria-hidden="true"
-                  >
-                    <path d="M6.002 5.55L11.27 0l.726.685L6.003 7 0 .685.726 0z" />
-                  </svg>
-                </a>
-                <ul class="bx--header__menu" role="menu" aria-label="L1 link 4">
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">Link 1</span>
-                    </a>
-                  </li>
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">Link 2</span>
-                    </a>
-                  </li>
-                  <li role="none">
-                    <a
-                      class="bx--header__menu-item"
-                      role="menuitem"
-                      href="javascript:void(0)"
-                      tabindex="-1"
-                    >
-                      <span class="bx--text-truncate--end">
-                        Ipsum architecto voluptatem
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
           <div class="bx--header__global">
             <button
               class="bx--header__action"
@@ -257,267 +162,23 @@ class UIShell extends Component {
               </div>
               <div class="bx--side-nav__details">
                 <h2 class="bx--side-nav__title" title="[L1 name here]">
-                  [L1 name here]
+                  12 Design Patterns
                 </h2>
-                <div class="bx--side-nav__switcher">
-                  <label for="side-nav-switcher" class="bx--assistive-text">
-                    Switcher
-                  </label>
-                  <select
-                    id="carbon-side-nav-switcher"
-                    class="bx--side-nav__select"
-                  >
-                    <option
-                      class="bx--side-nav__option"
-                      disabled=""
-                      hidden=""
-                      value=""
-                      selected=""
-                    >
-                      Switcher
-                    </option>
-                    <option class="bx--side-nav__option" value="Option 1">
-                      Option 1
-                    </option>
-                    <option class="bx--side-nav__option" value="Option 2">
-                      Option 2
-                    </option>
-                    <option class="bx--side-nav__option" value="Option 3">
-                      Option 3
-                    </option>
-                  </select>
-                  <div class="bx--side-nav__switcher-chevron">
-                    <svg
-                      aria-hidden="true"
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                    >
-                      <path d="M16 22L6 12l1.414-1.414L16 19.172l8.586-8.586L26 12 16 22z" />
-                    </svg>
-                  </div>
-                </div>
               </div>
             </header>
             <ul class="bx--side-nav__items">
-              <li class="bx--side-nav__item">
-                <a class="bx--side-nav__link" href="javascript:void(0)">
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__link-text">Link</span>
-                </a>
-              </li>
-              <li class="bx--side-nav__item bx--side-nav__item--active">
-                <a
-                  class="bx--side-nav__link"
-                  href="javascript:void(0)"
-                  aria-current="page"
-                >
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__link-text">Link - active</span>
-                </a>
-              </li>
-              <li class="bx--side-nav__item">
-                <a class="bx--side-nav__link" href="javascript:void(0)">
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__link-text">
-                    Link with really long text that should wrap
-                  </span>
-                </a>
-              </li>
-              <li class="bx--side-nav__item bx--side-nav__item--active">
-                <a
-                  class="bx--side-nav__link bx--side-nav__link--current"
-                  href="javascript:void(0)"
-                  aria-current="page"
-                >
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__link-text">
-                    Link with really long text that should wrap - active
-                  </span>
-                </a>
-              </li>
-              <li class="bx--side-nav__item">
-                <button
-                  class="bx--side-nav__submenu"
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <div class="bx--side-nav__icon">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__submenu-title">
-                    Category title that is really long and probably should
-                    overflow
-                  </span>
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
-                    <svg
-                      aria-hidden="true"
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                    >
-                      <path d="M16 22L6 12l1.414-1.414L16 19.172l8.586-8.586L26 12 16 22z" />
-                    </svg>
-                  </div>
-                </button>
-                <ul class="bx--side-nav__menu" role="menu" hidden="">
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                    >
-                      Link
-                    </a>
-                  </li>
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                    >
-                      Link
-                    </a>
-                  </li>
-                  <li class="bx--side-nav__menu-item" role="menuitem">
-                    <a class="bx--side-nav__link" href="javascript:void(0)">
-                      Link
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="bx--side-nav__item bx--side-nav__item--active">
-                <button
-                  class="bx--side-nav__submenu"
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded="true"
-                >
-                  <div class="bx--side-nav__icon">
-                    <svg
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z" />
-                    </svg>
-                  </div>
-                  <span class="bx--side-nav__submenu-title">
-                    Category title that is really long and probably should
-                    overflow
-                  </span>
-                  <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
-                    <svg
-                      aria-hidden="true"
-                      width="20"
-                      height="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
-                    >
-                      <path d="M16 22L6 12l1.414-1.414L16 19.172l8.586-8.586L26 12 16 22z" />
-                    </svg>
-                  </div>
-                </button>
-                <ul class="bx--side-nav__menu" role="menu">
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                    >
-                      <span class="bx--side-nav__link-text">
-                        Link with really long text that probably should be
-                        truncated
-                      </span>
-                    </a>
-                  </li>
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                      aria-current="page"
-                    >
-                      <span class="bx--side-nav__link-text">
-                        Link with really long text that probably should be
-                        truncated
-                      </span>
-                    </a>
-                  </li>
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                    >
-                      <span class="bx--side-nav__link-text">Link</span>
-                    </a>
-                  </li>
-                  <li class="bx--side-nav__menu-item" role="none">
-                    <a
-                      class="bx--side-nav__link"
-                      href="javascript:void(0)"
-                      role="menuitem"
-                      aria-current="page"
-                    >
-                      <span class="bx--side-nav__link-text">Link</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+              {this.renderLeftNavItemEven("Display Form")}
+              {this.renderLeftNavItemOdd("Validating Form")}
+              {this.renderLeftNavItemEven("Update Form")}
+              {this.renderLeftNavItemOdd("Validating Form Wizard")}
+              {this.renderLeftNavItemEven("Simple List")}
+              {this.renderLeftNavItemOdd("Table List")}
+              {this.renderLeftNavItemEven("List to List")}
+              {this.renderLeftNavItemOdd("Linked List")}
+              {this.renderLeftNavItemEven("Master Detail")}
+              {this.renderLeftNavItemOdd("Create, Read, Update, Delete")}
+              {this.renderLeftNavItemEven("Search List")}
+              {this.renderLeftNavItemOdd("Search Form")}
             </ul>
             <footer class="bx--side-nav__footer">
               <button
