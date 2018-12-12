@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import RawUIShell from "./components/RawUIShell";
 import { Button } from "carbon-components-react";
 
@@ -12,7 +12,7 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>IBM cloud garage catalyst react ui</p>
           <br />
-          <Button> A Carbon Button: Catalyst REACT UI </Button>
+          <Button> Carbon Button: Catalyst REACT UI </Button>
 
           <RawUIShell />
         </header>
