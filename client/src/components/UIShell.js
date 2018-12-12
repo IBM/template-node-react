@@ -2,10 +2,25 @@ import React, { Component } from "react";
 import UIShellBody from "./UIShellBody";
 
 class UIShell extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      patternName: ""
+    };
+  }
+
+  onPatternSelection = label => {
+    console.log(label);
+    this.setState({ patternName: label });
+  };
   renderLeftNavItemEven = label => {
     return (
       <li class="bx--side-nav__item ">
-        <a class="bx--side-nav__link" href="javascript:void(0)">
+        <a
+          class="bx--side-nav__link"
+          href="javascript:void(0)"
+          onClick={e => this.onPatternSelection(label)}
+        >
           <div class="bx--side-nav__icon bx--side-nav__icon--small">
             <svg
               width="20"
@@ -28,6 +43,7 @@ class UIShell extends Component {
         <a
           class="bx--side-nav__link"
           href="javascript:void(0)"
+          onClick={e => this.onPatternSelection(label)}
           aria-current="page"
         >
           <div class="bx--side-nav__icon bx--side-nav__icon--small">
@@ -367,7 +383,7 @@ class UIShell extends Component {
           </div>
         </aside>
         <div class="bx--content">
-          <UIShellBody />
+          <UIShellBody patternName={this.state.patternName} />
         </div>
       </div>
     );
