@@ -18,7 +18,7 @@ class UIShell extends Component {
       <li class="bx--side-nav__item ">
         <a
           class="bx--side-nav__link"
-          href="javascript:void(0)"
+          href="# "
           onClick={e => this.onPatternSelection(label)}
         >
           <div class="bx--side-nav__icon bx--side-nav__icon--small">
@@ -42,7 +42,7 @@ class UIShell extends Component {
       <li class="bx--side-nav__item bx--side-nav__item--active">
         <a
           class="bx--side-nav__link"
-          href="javascript:void(0)"
+          href="# "
           onClick={e => this.onPatternSelection(label)}
           aria-current="page"
         >
@@ -90,7 +90,7 @@ class UIShell extends Component {
               <path d="M4 6h24v2H4zm0 18h24v2H4zm0-9h24v2H4z" />
             </svg>
           </button>
-          <a class="bx--header__name" href="#" title="">
+          <a class="bx--header__name" href="# " title="">
             <span class="bx--header__name--prefix">IBM &nbsp;</span>
             Cloud Garage Catalyst
           </a>
@@ -199,7 +199,6 @@ class UIShell extends Component {
             <footer class="bx--side-nav__footer">
               <button
                 class="bx--side-nav__toggle"
-                role="button"
                 title="Close the side navigation menu"
               >
                 <div class="bx--side-nav__icon">
@@ -278,7 +277,7 @@ class UIShell extends Component {
             <p class="bx--product-switcher__subheader">My Products</p>
             <ul class="bx--product-switcher__product-list">
               <li class="bx--product-list__item">
-                <a class="bx--product-link" tabindex="0" href="#">
+                <a class="bx--product-link" tabindex="0" href="# ">
                   <div class="bx--product-switcher__icon">
                     <svg
                       width="20"
@@ -324,7 +323,7 @@ class UIShell extends Component {
                 </div>
               </li>
               <li class="bx--product-list__item">
-                <a class="bx--product-link" tabindex="0" href="#">
+                <a class="bx--product-link" tabindex="0" href="# ">
                   <div class="bx--product-switcher__icon">
                     <svg
                       width="20"
