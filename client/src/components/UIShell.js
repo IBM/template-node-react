@@ -2,20 +2,10 @@ import React, { Component } from "react";
 import {
   Content,
   Header,
-  //  HeaderMenuButton,
   HeaderName,
-  //  HeaderNavigation,
-  //  HeaderMenu,
-  //  HeaderMenuItem,
-  //  HeaderGlobalBar,
-  //  HeaderGlobalAction,
   SkipToContent,
   SideNav,
-  //  SideNavHeader,
-  //  SideNavDetails,
-  //  SideNavSwitcher,
   SideNavItems,
-  //  SideNavLink,
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react/lib/components/UIShell/';
@@ -37,7 +27,7 @@ class UIShell extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      patternName: ""
+      patternName: "Display Form"
     };
   }
 
@@ -48,7 +38,7 @@ class UIShell extends Component {
 
   renderSideNavItem = label => {
     return (
-      <SideNavMenuItem href="# " onClick={e => this.onPatternSelection(label)}>{label}</SideNavMenuItem>
+      <SideNavMenuItem href="# " aria-current={label === this.state.patternName ? "page" : null} onClick={e => this.onPatternSelection(label)}>{label}</SideNavMenuItem>
     );
   };
 
