@@ -36,3 +36,8 @@ $feature-flags: (
     transform: rotate(360deg);
   }
 }
+
+.left-align {
+  display: block;
+  text-align: left;
+}
