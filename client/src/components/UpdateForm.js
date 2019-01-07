@@ -69,7 +69,7 @@ class UpdateForm extends Component {
       this.setState({ stateInvalid: true });
       checkFlag = false;
     }
-    if (!this.state.zipCode) {
+    if (!this.state.zipCode || (this.state.country === "United States" && ! /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(this.state.zipCode))) {
       this.setState({ zipCodeInvalid: true });
       checkFlag = false;
     }
@@ -162,7 +162,7 @@ class UpdateForm extends Component {
                     labelText="Zip Code"
                     maxLength="20"
                     invalid={this.state.zipCodeInvalid}
-                    invalidText="Please enter a zip code.."
+                    invalidText="Please enter a valid zip code.."
                   />
                   <br /><br />
                   <p className="bx--label left-align">Country</p>
