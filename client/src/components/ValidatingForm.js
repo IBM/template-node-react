@@ -1,8 +1,181 @@
 import React, { Component } from "react";
+import {
+  TextInput, Form, DropdownV2, Button, Tile
+} from 'carbon-components-react';
+
+let checkFlag = true;
 
 class ValidatingForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataToSave: {}
+    };
+  }
+
+  saveData = event => {
+    const target = event.target;
+    let fieldName = target.name;
+    let fieldValue = target.value;
+    if (!fieldValue) {
+      this.setState({ [fieldName]: fieldValue, [fieldName + 'Invalid']: true });
+    } else {
+      this.setState({ [fieldName]: fieldValue, [fieldName + 'Invalid']: false });
+    }
+  }
+
+  saveDataDropdown1 = ({ selectedItem }) => {
+    this.setState({ state: selectedItem, stateInvalid: false });
+  }
+
+  saveDataDropdown2 = ({ selectedItem }) => {
+    this.setState({ country: selectedItem, countryInvalid: false });
+  }
+
+  checkForm = () => {
+    checkFlag = true;
+    if (!this.state.name) {
+      this.setState({ nameInvalid: true });
+      checkFlag = false;
+    }
+    if (!this.state.address) {
+      this.setState({ addressInvalid: true });
+      checkFlag = false;
+    }
+    if (!this.state.city) {
+      this.setState({ cityInvalid: true });
+      checkFlag = false;
+    }
+    if (!this.state.state) {
+      this.setState({ stateInvalid: true });
+      checkFlag = false;
+    }
+    if (!this.state.zipCode) {
+      this.setState({ zipCodeInvalid: true });
+      checkFlag = false;
+    }
+    if (!this.state.country) {
+      this.setState({ countryInvalid: true });
+      checkFlag = false;
+    }
+    return checkFlag;
+  }
+
+  saveForm = event => {
+    event.preventDefault();
+    if (this.checkForm()) {
+      let dataToSave = {
+        name: this.state.name,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zipCode: this.state.zipCode,
+        country: this.state.country
+      };
+      this.setState({ dataToSave });
+    }
+  }
+
   render() {
-    return <div><br /><strong>Description:</strong> Presents a model object as a data input form and interacts with a validation service for validation.</div>;
+    return (
+      <div>
+        <br />
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-xs-12">
+              <strong>Description:</strong> Presents a model object as a data input form and interacts with a validation service for validation.
+            </div>
+          </div>
+          <br /><br />
+          <div className="bx--row">
+            <div className="bx--offset-xs-3 bx--col-xs-6">
+              <Tile>
+                <Form>
+                  <TextInput
+                    id="name"
+                    name="name"
+                    value={this.state.name || ''}
+                    onChange={this.saveData}
+                    labelText="Name"
+                    maxLength="100"
+                    invalid={this.state.nameInvalid}
+                    invalidText="Please enter a name.."
+                  />
+                  <br /><br />
+                  <TextInput
+                    id="address"
+                    name="address"
+                    value={this.state.address || ''}
+                    onChange={this.saveData}
+                    labelText="Address"
+                    maxLength="200"
+                    invalid={this.state.addressInvalid}
+                    invalidText="Please enter an address.."
+                  />
+                  <br /><br />
+                  <TextInput
+                    id="city"
+                    name="city"
+                    value={this.state.city || ''}
+                    onChange={this.saveData}
+                    labelText="City"
+                    maxLength="100"
+                    invalid={this.state.cityInvalid}
+                    invalidText="Please enter a city.."
+                  />
+                  <br /><br />
+                  <p className="bx--label left-align">State</p>
+                  <DropdownV2
+                    id="state"
+                    label="Select a state.."
+                    ariaLabel="Select a state.."
+                    items={["TX", "Other"]}
+                    selectedItem={this.state.state}
+                    onChange={this.saveDataDropdown1}
+                  />
+                  {this.state.stateInvalid && <p className="dropdown-invalid">Please select a state..</p>}
+                  <br /><br />
+                  <TextInput
+                    id="zipCode"
+                    name="zipCode"
+                    value={this.state.zipCode || ''}
+                    onChange={this.saveData}
+                    labelText="Zip Code"
+                    maxLength="20"
+                    invalid={this.state.zipCodeInvalid}
+                    invalidText="Please enter a zip code.."
+                  />
+                  <br /><br />
+                  <p className="bx--label left-align">Country</p>
+                  <DropdownV2
+                    id="country"
+                    label="Select a country.."
+                    ariaLabel="Select a country.."
+                    items={["United States", "Other"]}
+                    selectedItem={this.state.country}
+                    onChange={this.saveDataDropdown2}
+                  />
+                  {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
+                  <br /><br />
+                  <Button onClick={this.saveForm}>OK</Button>
+                </Form>
+              </Tile>
+            </div>
+          </div>
+          <br /><br />
+          <div className="bx--row">
+            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
+              {Object.keys(this.state.dataToSave).length > 0 &&
+                <Tile>
+                  {Object.keys(this.state.dataToSave).map(item => <p>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
+                </Tile>
+              }
+            </div>
+          </div>
+          <br /><br />
+        </div>
+      </div>
+    );
   }
 }
 export default ValidatingForm;
