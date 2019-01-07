@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
   TextInput, Form, DropdownV2, Button, Tile
 } from 'carbon-components-react';
+import "./patterns.scss";
 
 let checkFlag = true;
 

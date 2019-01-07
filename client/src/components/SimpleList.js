@@ -12,7 +12,7 @@ import {
   Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
-import "./patterns.css";
+import "./patterns.scss";
 
 class SimpleList extends Component {
   constructor(props) {

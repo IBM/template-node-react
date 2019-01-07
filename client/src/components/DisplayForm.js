@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
   TextInput, Form, DropdownV2, Tile
 } from 'carbon-components-react';
+import "./patterns.scss";
 
 class DisplayForm extends Component {
   constructor(props) {

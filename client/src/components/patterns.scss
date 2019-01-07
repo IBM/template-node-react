@@ -1,0 +1,21 @@
+.simple-list-container {
+  padding: 100px;
+}
+.simple-list-row {
+  text-align: left;
+}
+.left-align {
+  display: block !important;
+  text-align: left;
+}
+.dropdown-invalid {
+  max-height: 12.5rem;
+  display: block;
+  color: #e0182d;
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: left;
+}
