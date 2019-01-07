@@ -15,6 +15,7 @@
     "bfj": "6.1.1",
     "carbon-components": "^9.62.6",
     "carbon-components-react": "^6.67.0",
+    "carbon-icons": "^7.0.7",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
     "css-loader": "1.0.0",
