@@ -158,7 +158,7 @@ class ValidatingForm extends Component {
                   />
                   {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
                   <br /><br />
-                  <Button onClick={this.saveForm}>OK</Button>
+                  <Button onClick={this.saveForm}>Submit</Button>
                 </Form>
               </Tile>
             </div>
