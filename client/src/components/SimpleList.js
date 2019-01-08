@@ -51,6 +51,7 @@ class SimpleList extends Component {
     );
   };
   render() {
+    const data = ["row1", "row2", "row3"];
     return (
       <div className="simple-list-container">
         <StructuredListWrapper selection border>
@@ -62,7 +63,7 @@ class SimpleList extends Component {
           </StructuredListHead>
 
           <StructuredListBody>
-            {["row1", "row2", "row3"].map((row, i) => {
+            {data.map((row, i) => {
               return this.renderRow(row, i);
             })}
           </StructuredListBody>
