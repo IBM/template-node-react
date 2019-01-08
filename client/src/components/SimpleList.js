@@ -53,7 +53,11 @@ class SimpleList extends Component {
   render() {
     const data = ["row1", "row2", "row3"];
     return (
-      <div className="simple-list-container">
+      <div className="pattern-container">
+        <div className="pattern-description">
+          <strong>Description:</strong> This pattern will display an array of
+          model objects in a simple list column list.
+        </div>
         <StructuredListWrapper selection border>
           <StructuredListHead>
             <StructuredListRow head>

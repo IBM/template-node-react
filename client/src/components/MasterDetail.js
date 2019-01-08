@@ -12,7 +12,6 @@ import {
   Tile
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
-import DisplayForm from "./DisplayForm";
 import "./patterns.scss";
 
 class MasterDetail extends Component {
@@ -58,12 +57,16 @@ class MasterDetail extends Component {
     const selectedRow = this.state.selectedRow;
     const data = [
       { name: "Mak", address: "address A", city: "Austin" },
-      { name: "Ling", address: "address B", city: "Austin" },
+      { name: "Lin", address: "address B", city: "Austin" },
       { name: "Joe", address: "address C", city: "San francisco" }
     ];
     const columns = Object.keys(data[0]);
     return (
-      <div className="simple-list-container">
+      <div className="pattern-container">
+        <div className="pattern-description">
+          <strong>Description:</strong> This pattern will use a simple list of
+          table list and link to a display form.
+        </div>
         <StructuredListWrapper selection border>
           <StructuredListHead>
             <StructuredListRow head>
