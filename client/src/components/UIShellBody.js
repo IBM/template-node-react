@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import DisplayForm from "./DisplayForm";
 import ValidatingForm from "./ValidatingForm";
 import UpdateForm from "./UpdateForm";
-import ValidatingFormWizard from "./ValidatingFormWizard";
+import ValidatingFormWizard1 from "./ValidatingFormWizard1";
+import ValidatingFormWizard2 from "./ValidatingFormWizard2";
 import SimpleList from "./SimpleList";
 import TableList from "./TableList";
 import ListToList from "./ListToList";
@@ -17,7 +18,8 @@ class UIShellBody extends Component {
     "Display Form": DisplayForm,
     "Validating Form": ValidatingForm,
     "Update Form": UpdateForm,
-    "Validating Form Wizard": ValidatingFormWizard,
+    "Validating Form Wizard 1": ValidatingFormWizard1,
+    "Validating Form Wizard 2": ValidatingFormWizard2,
     "Simple List": SimpleList,
     "Table List": TableList,
     "List to List": ListToList,

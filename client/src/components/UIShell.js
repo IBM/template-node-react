@@ -32,7 +32,6 @@ class UIShell extends Component {
   }
 
   onPatternSelection = label => {
-    console.log(label);
     this.setState({ patternName: label });
   };
 
@@ -62,7 +61,8 @@ class UIShell extends Component {
               {this.renderSideNavItem("Display Form")}
               {this.renderSideNavItem("Validating Form")}
               {this.renderSideNavItem("Update Form")}
-              {this.renderSideNavItem("Validating Form Wizard")}
+              {this.renderSideNavItem("Validating Form Wizard 1")}
+              {this.renderSideNavItem("Validating Form Wizard 2")}
               {this.renderSideNavItem("Simple List")}
               {this.renderSideNavItem("Table List")}
               {this.renderSideNavItem("List to List")}

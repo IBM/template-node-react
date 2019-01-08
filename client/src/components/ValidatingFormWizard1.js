@@ -6,7 +6,7 @@ import "./patterns.scss";
 
 let checkFlag = true;
 
-class ValidatingFormWizard extends Component {
+class ValidatingFormWizard1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -249,4 +249,4 @@ class ValidatingFormWizard extends Component {
     );
   }
 }
-export default ValidatingFormWizard;
+export default ValidatingFormWizard1;
