@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import {
-  TextInput,
-  DropdownV2,
-  Tile,
   StructuredListWrapper,
   StructuredListRow,
   StructuredListCell,
@@ -53,25 +50,31 @@ class SimpleList extends Component {
   render() {
     const data = ["row1", "row2", "row3"];
     return (
-      <div className="pattern-container">
-        <div className="pattern-description">
-          <strong>Description:</strong> This pattern will display an array of
-          model objects in a simple list column list.
+      <div className="bx--grid pattern-container">
+        <div className="bx--row pattern-description">
+          <div className="bx--offset-xs-1 bx--col-xs-10">
+            <strong>Description:</strong> This pattern will display an array of
+            model objects in a simple list column list.
+          </div>
         </div>
-        <StructuredListWrapper selection border>
-          <StructuredListHead>
-            <StructuredListRow head>
-              <StructuredListCell head />
-              <StructuredListCell head>Simple List Title</StructuredListCell>
-            </StructuredListRow>
-          </StructuredListHead>
+        <div className="bx--row">
+          <div className="bx--offset-xs-3 bx--col-xs-6">
+            <StructuredListWrapper selection border>
+              <StructuredListHead>
+                <StructuredListRow head>
+                  <StructuredListCell head />
+                  <StructuredListCell head>Simple List Title</StructuredListCell>
+                </StructuredListRow>
+              </StructuredListHead>
 
-          <StructuredListBody>
-            {data.map((row, i) => {
-              return this.renderRow(row, i);
-            })}
-          </StructuredListBody>
-        </StructuredListWrapper>
+              <StructuredListBody>
+                {data.map((row, i) => {
+                  return this.renderRow(row, i);
+                })}
+              </StructuredListBody>
+            </StructuredListWrapper>
+          </div>
+        </div>
       </div>
     );
   }

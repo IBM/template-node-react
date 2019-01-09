@@ -6,10 +6,7 @@ import {
   StructuredListHead,
   StructuredListBody,
   StructuredListInput,
-  Icon,
-  TextInput,
-  Form,
-  Tile
+  Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
 import "./patterns.scss";
@@ -61,27 +58,33 @@ class TableList extends Component {
     ];
     const columns = Object.keys(data[0]);
     return (
-      <div className="pattern-container">
-        <div className="pattern-description">
-          <strong>Description:</strong> This pattern will display and array of
-          model objects in a multi column grid/table.
+      <div className="bx--grid pattern-container">
+        <div className="bx--row pattern-description">
+          <div className="bx--offset-xs-1 bx--col-xs-10">
+            <strong>Description:</strong> This pattern will display and array of
+            model objects in a multi column grid/table.
+          </div>
         </div>
-        <StructuredListWrapper selection border>
-          <StructuredListHead>
-            <StructuredListRow head>
-              <StructuredListCell head />
-              {columns.map(key => {
-                return <StructuredListCell head>{key}</StructuredListCell>;
-              })}
-            </StructuredListRow>
-          </StructuredListHead>
+        <div className="bx--row">
+          <div className="bx--offset-xs-3 bx--col-xs-6">
+            <StructuredListWrapper selection border>
+              <StructuredListHead>
+                <StructuredListRow head>
+                  <StructuredListCell head />
+                  {columns.map(key => {
+                    return <StructuredListCell head>{key}</StructuredListCell>;
+                  })}
+                </StructuredListRow>
+              </StructuredListHead>
 
-          <StructuredListBody>
-            {data.map((row, i) => {
-              return this.renderRow(row, i);
-            })}
-          </StructuredListBody>
-        </StructuredListWrapper>
+              <StructuredListBody>
+                {data.map((row, i) => {
+                  return this.renderRow(row, i);
+                })}
+              </StructuredListBody>
+            </StructuredListWrapper>
+          </div>
+        </div>
       </div>
     );
   }
