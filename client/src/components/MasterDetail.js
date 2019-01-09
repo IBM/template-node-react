@@ -59,7 +59,6 @@ class MasterDetail extends Component {
             value="row-0"
             title="row-0"
             name="row-0"
-            //defaultChecked={this.state.selectedRow === id}
             checked={this.state.selectedRow === id}
           />
           <StructuredListCell>
