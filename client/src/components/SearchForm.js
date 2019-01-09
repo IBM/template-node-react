@@ -89,7 +89,7 @@ class SearchForm extends Component {
               placeHolderText="Search"
               onChange={this.onSearch}
               id="search-1"
-              light="true"
+              light={true}
             />
           </div>
         </div>
