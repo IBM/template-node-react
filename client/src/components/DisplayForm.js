@@ -42,7 +42,7 @@ class DisplayForm extends Component {
                 {data.map(item => {
                   if (item.type === "textinput") {
                     return (
-                      <div className="display-form-item">
+                      <div key={item.label} className="display-form-item">
                         <TextInput
                           disabled
                           id={item.label}
@@ -53,15 +53,12 @@ class DisplayForm extends Component {
                     );
                   } else if (item.type === "dropdown") {
                     return (
-                      <div className="display-form-item">
+                      <div key={item.label} className="display-form-item">
                         <p className="bx--label left-align">{item.label}</p>
                         <DropdownV2
                           disabled
                           id={item.label}
                           label={"Select a " + item.label.toLowerCase() + ".."}
-                          ariaLabel={
-                            "Select a " + item.label.toLowerCase() + ".."
-                          }
                           items={item.value}
                           selectedItem={item.value[0]}
                         />

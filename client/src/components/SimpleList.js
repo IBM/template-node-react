@@ -18,12 +18,14 @@ class SimpleList extends Component {
       selectedRow: 0
     };
   }
+
   onRowClick = id => {
     this.setState({ selectedRow: id });
   };
+
   renderRow = (row, id) => {
     return (
-      <StructuredListRow onClick={() => this.onRowClick(id)}>
+      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
@@ -47,6 +49,7 @@ class SimpleList extends Component {
       </StructuredListRow>
     );
   };
+
   render() {
     const data = ["row1", "row2", "row3"];
     return (
@@ -79,4 +82,5 @@ class SimpleList extends Component {
     );
   }
 }
+
 export default SimpleList;

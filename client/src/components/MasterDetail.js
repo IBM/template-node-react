@@ -40,16 +40,17 @@ class MasterDetail extends Component {
     ];
     this.state = {
       selectedRow: 0,
-      showDescription: props.showDescription || false,
       data
     };
   }
+
   onRowClick = id => {
     this.setState({ selectedRow: id });
   };
+
   renderRow = (row, id) => {
     return (
-      <StructuredListRow onClick={() => this.onRowClick(id)}>
+      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
@@ -67,7 +68,7 @@ class MasterDetail extends Component {
         </div>
         {Object.keys(row).map(col => {
           return (
-            <StructuredListCell className="simple-list-row">
+            <StructuredListCell key={col} className="simple-list-row">
               {row[col]}
             </StructuredListCell>
           );
@@ -75,22 +76,20 @@ class MasterDetail extends Component {
       </StructuredListRow>
     );
   };
+
   render() {
     const selectedRow = this.state.selectedRow;
     const data = this.state.data;
     const columns = data[selectedRow].map(item => item.label);
-    const showDescription = this.state.showDescription;
 
     return (
       <div className="bx--grid pattern-container">
-        {showDescription && (
-          <div className="bx--row pattern-description">
-            <div className="bx--offset-xs-1 bx--col-xs-10">
-              <strong>Description:</strong> This pattern will use a simple list
-              of table list and link to a display form.
+        <div className="bx--row pattern-description">
+          <div className="bx--offset-xs-1 bx--col-xs-10">
+            <strong>Description:</strong> This pattern will use a simple list
+            of table list and link to a display form.
             </div>
-          </div>
-        )}
+        </div>
         <div className="bx--row">
           <div className="bx--offset-xs-2 bx--col-xs-8">
             <StructuredListWrapper selection border>
@@ -98,7 +97,7 @@ class MasterDetail extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head>{key}</StructuredListCell>;
+                    return <StructuredListCell head key={key}>{key}</StructuredListCell>;
                   })}
                 </StructuredListRow>
               </StructuredListHead>
@@ -116,4 +115,5 @@ class MasterDetail extends Component {
     );
   }
 }
+
 export default MasterDetail;

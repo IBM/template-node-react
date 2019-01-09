@@ -183,7 +183,7 @@ class UpdateForm extends Component {
           <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
             {Object.keys(this.state.dataToSave).length > 0 &&
               <Tile>
-                {Object.keys(this.state.dataToSave).map(item => <p>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
+                {Object.keys(this.state.dataToSave).map(item => <p key={item}>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>
             }
           </div>

@@ -18,12 +18,14 @@ class TableList extends Component {
       selectedRow: 0
     };
   }
+
   onRowClick = id => {
     this.setState({ selectedRow: id });
   };
+
   renderRow = (row, id) => {
     return (
-      <StructuredListRow onClick={() => this.onRowClick(id)}>
+      <StructuredListRow key={id} onClick={() => this.onRowClick(id)}>
         <div>
           <StructuredListInput
             id={`row-${id}`}
@@ -42,7 +44,7 @@ class TableList extends Component {
         </div>
         {Object.keys(row).map(col => {
           return (
-            <StructuredListCell className="simple-list-row">
+            <StructuredListCell key={col} className="simple-list-row">
               {row[col]}
             </StructuredListCell>
           );
@@ -50,6 +52,7 @@ class TableList extends Component {
       </StructuredListRow>
     );
   };
+
   render() {
     const data = [
       { Name: "Mak Kader", Address: "address A", City: "Austin" },
@@ -72,7 +75,7 @@ class TableList extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head>{key}</StructuredListCell>;
+                    return <StructuredListCell head key={key}>{key}</StructuredListCell>;
                   })}
                 </StructuredListRow>
               </StructuredListHead>
@@ -89,4 +92,5 @@ class TableList extends Component {
     );
   }
 }
+
 export default TableList;
