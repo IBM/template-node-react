@@ -1,88 +1,86 @@
 import React, { Component } from "react";
-import {
-  TextInput, Form, DropdownV2, Tile
-} from 'carbon-components-react';
+import { TextInput, Form, DropdownV2, Tile } from "carbon-components-react";
 import "./patterns.scss";
 
 class DisplayForm extends Component {
   constructor(props) {
     super(props);
+    const defaultData = [
+      { label: "Name", value: "John Doe", type: "textinput" },
+      { label: "Address", value: "123 Main Street", type: "textinput" },
+      { label: "State", value: ["TX", "Other"], type: "dropdown" },
+      { label: "Zip", value: "12345", type: "textinput" },
+      { label: "Country", value: ["United States"], type: "dropdown" }
+    ];
     this.state = {
-      name: "John Doe",
-      address: "123 Main Street",
-      city: "Anytown",
-      state: "TX",
-      zipCode: "12345",
-      country: "United States"
+      data: props.data || defaultData,
+      showDescription: props.showDescription || false
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ data: nextProps.data });
+  }
+
   render() {
+    const data = this.state.data;
+    const showDescription = this.state.showDescription;
     return (
       <div>
         <br />
         <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-xs-12">
-              <strong>Description:</strong> Displays a model object as a form in a read only display.
+          {showDescription && (
+            <div className="bx--row pattern-description">
+              <div className="bx--col-xs-12">
+                <strong>Description:</strong> Displays a model object as a form
+                in a read only display.
+              </div>
             </div>
-          </div>
-          <br /><br />
+          )}
           <div className="bx--row">
             <div className="bx--offset-xs-3 bx--col-xs-6">
               <Tile>
                 <Form>
-                  <TextInput
-                    id="name"
-                    name="name"
-                    value={this.state.name || ''}
-                    labelText="Name"
-                  />
-                  <br /><br />
-                  <TextInput
-                    id="address"
-                    name="address"
-                    value={this.state.address || ''}
-                    labelText="Address"
-                  />
-                  <br /><br />
-                  <TextInput
-                    id="city"
-                    name="city"
-                    value={this.state.city || ''}
-                    labelText="City"
-                  />
-                  <br /><br />
-                  <p className="bx--label left-align">State</p>
-                  <DropdownV2
-                    id="state"
-                    label="Select a state.."
-                    ariaLabel="Select a state.."
-                    items={["TX"]}
-                    selectedItem={this.state.state}
-                  />
-                  <br /><br />
-                  <TextInput
-                    id="zipCode"
-                    name="zipCode"
-                    value={this.state.zipCode || ''}
-                    labelText="Zip Code"
-                  />
-                  <br /><br />
-                  <p className="bx--label left-align">Country</p>
-                  <DropdownV2
-                    id="country"
-                    label="Select a country.."
-                    ariaLabel="Select a country.."
-                    items={["United States"]}
-                    selectedItem={this.state.country}
-                  />
-                  <br />
+                  {data.map(item => {
+                    if (item.type === "textinput") {
+                      return (
+                        <div className="display-form-item">
+                          <TextInput
+                            disabled
+                            id={item.label}
+                            value={item.value}
+                            labelText={item.label}
+                          />
+                        </div>
+                      );
+                    } else if (item.type === "dropdown") {
+                      return (
+                        <div className="display-form-item">
+                          <p className="bx--label left-align">{item.label}</p>
+                          <DropdownV2
+                            disabled
+                            id={item.label}
+                            label={
+                              "Select a " + item.label.toLowerCase() + ".."
+                            }
+                            ariaLabel={
+                              "Select a " + item.label.toLowerCase() + ".."
+                            }
+                            items={item.value}
+                            selectedItem={item.value[0]}
+                          />
+                        </div>
+                      );
+                    } else {
+                      return <div />;
+                    }
+                  })}
                 </Form>
               </Tile>
             </div>
           </div>
-          <br /><br />
+          <br />
+          <br />
         </div>
       </div>
     );

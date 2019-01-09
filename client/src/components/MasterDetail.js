@@ -13,12 +13,38 @@ import {
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
 import "./patterns.scss";
+import DisplayForm from "./DisplayForm";
 
 class MasterDetail extends Component {
   constructor(props) {
     super(props);
+    const data = [
+      [
+        { label: "Name", value: "Lin", type: "textinput" },
+        { label: "Address", value: "123 Main Street", type: "textinput" },
+        { label: "State", value: ["TX"], type: "dropdown" },
+        { label: "Zip", value: "12345", type: "textinput" },
+        { label: "Country", value: ["United States"], type: "dropdown" }
+      ],
+      [
+        { label: "Name", value: "Mak", type: "textinput" },
+        { label: "Address", value: "45 2nd Street", type: "textinput" },
+        { label: "State", value: ["TX"], type: "dropdown" },
+        { label: "Zip", value: "78766", type: "textinput" },
+        { label: "Country", value: ["United States"], type: "dropdown" }
+      ],
+      [
+        { label: "Name", value: "Joe", type: "textinput" },
+        { label: "Address", value: "40 Down Street", type: "textinput" },
+        { label: "State", value: ["CA"], type: "dropdown" },
+        { label: "Zip", value: "90706", type: "textinput" },
+        { label: "Country", value: ["United States"], type: "dropdown" }
+      ]
+    ];
     this.state = {
-      selectedRow: 0
+      selectedRow: 0,
+      showDescription: props.showDescription || false,
+      data
     };
   }
   onRowClick = id => {
@@ -55,58 +81,41 @@ class MasterDetail extends Component {
   };
   render() {
     const selectedRow = this.state.selectedRow;
-    const data = [
-      { name: "Mak", address: "address A", city: "Austin" },
-      { name: "Lin", address: "address B", city: "Austin" },
-      { name: "Joe", address: "address C", city: "San francisco" }
-    ];
-    const columns = Object.keys(data[0]);
-    return (
-      <div className="pattern-container">
-        <div className="pattern-description">
-          <strong>Description:</strong> This pattern will use a simple list of
-          table list and link to a display form.
-        </div>
-        <StructuredListWrapper selection border>
-          <StructuredListHead>
-            <StructuredListRow head>
-              <StructuredListCell head />
-              {columns.map(key => {
-                return <StructuredListCell head>{key}</StructuredListCell>;
-              })}
-            </StructuredListRow>
-          </StructuredListHead>
+    const data = this.state.data;
+    const columns = data[selectedRow].map(item => item.label);
+    const showDescription = this.state.showDescription;
 
-          <StructuredListBody>
-            {data.map((row, i) => {
-              return this.renderRow(row, i);
-            })}
-          </StructuredListBody>
-        </StructuredListWrapper>
-        <Tile>
-          <Form>
-            <TextInput
-              id="name"
-              name="name"
-              value={data[selectedRow].name}
-              labelText="Name"
-            />
-            <br />
-            <TextInput
-              id="address"
-              name="address"
-              value={data[selectedRow].address}
-              labelText="Address"
-            />
-            <br />
-            <TextInput
-              id="city"
-              name="city"
-              value={data[selectedRow].city}
-              labelText="City"
-            />
-          </Form>
-        </Tile>
+    return (
+      <div className="bx--grid pattern-container">
+        {showDescription && (
+          <div className="bx--row pattern-description">
+            <div className="bx--col-xs-12">
+              <strong>Description:</strong> This pattern will use a simple list
+              of table list and link to a display form.
+            </div>
+          </div>
+        )}
+        <div className="bx--row">
+          <div className="bx--offset-xs-2 bx--col-xs-8">
+            <StructuredListWrapper selection border>
+              <StructuredListHead>
+                <StructuredListRow head>
+                  <StructuredListCell head />
+                  {columns.map(key => {
+                    return <StructuredListCell head>{key}</StructuredListCell>;
+                  })}
+                </StructuredListRow>
+              </StructuredListHead>
+              <StructuredListBody>
+                {data.map((row, i) => {
+                  const values = row.map(item => item.value);
+                  return this.renderRow(values, i);
+                })}
+              </StructuredListBody>
+            </StructuredListWrapper>
+          </div>
+        </div>
+        <DisplayForm data={data[selectedRow]} />
       </div>
     );
   }
