@@ -6,10 +6,7 @@ import {
   StructuredListHead,
   StructuredListBody,
   StructuredListInput,
-  Icon,
-  TextInput,
-  Form,
-  Tile
+  Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
 import "./patterns.scss";
@@ -88,7 +85,7 @@ class MasterDetail extends Component {
       <div className="bx--grid pattern-container">
         {showDescription && (
           <div className="bx--row pattern-description">
-            <div className="bx--col-xs-12">
+            <div className="bx--offset-xs-1 bx--col-xs-10">
               <strong>Description:</strong> This pattern will use a simple list
               of table list and link to a display form.
             </div>
