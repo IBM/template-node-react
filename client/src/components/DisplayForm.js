@@ -19,7 +19,7 @@ class DisplayForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ data: nextProps.data });
+    if (nextProps.data) this.setState({ data: nextProps.data });
   }
 
   render() {
@@ -30,8 +30,8 @@ class DisplayForm extends Component {
         {showDescription && (
           <div className="bx--row pattern-description">
             <div className="bx--offset-xs-1 bx--col-xs-10">
-              <strong>Description:</strong> Displays a model object as a form
-              in a read only display.
+              <strong>Description:</strong> Displays a model object as a form in
+              a read only display.
             </div>
           </div>
         )}
@@ -58,9 +58,7 @@ class DisplayForm extends Component {
                         <DropdownV2
                           disabled
                           id={item.label}
-                          label={
-                            "Select a " + item.label.toLowerCase() + ".."
-                          }
+                          label={"Select a " + item.label.toLowerCase() + ".."}
                           ariaLabel={
                             "Select a " + item.label.toLowerCase() + ".."
                           }
