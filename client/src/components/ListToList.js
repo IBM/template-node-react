@@ -79,8 +79,8 @@ class ListToList extends Component {
   selectedRowsListB = [];
 
   moveFromListAToB = event => {
-    let rowsListA = this.state.rowsListA;
-    let rowsListB = this.state.rowsListB;
+    let rowsListA = this.state.rowsListA.slice();
+    let rowsListB = this.state.rowsListB.slice();
     this.selectedRowsListA.forEach(elem => {
       rowsListA = rowsListA.filter(item => {
         if (item.id !== elem.id) {
@@ -91,14 +91,12 @@ class ListToList extends Component {
         }
       });
     });
-    this.setState({ rowsListA, rowsListB }, () => {
-      this.setState({ keyListA: Math.random(), keyListB: Math.random() });
-    });
+    this.setState({ rowsListA, rowsListB });
   }
 
   moveFromListBToA = event => {
-    let rowsListA = this.state.rowsListA;
-    let rowsListB = this.state.rowsListB;
+    let rowsListA = this.state.rowsListA.slice();
+    let rowsListB = this.state.rowsListB.slice();
     this.selectedRowsListB.forEach(elem => {
       rowsListB = rowsListB.filter(item => {
         if (item.id !== elem.id) {
@@ -109,9 +107,7 @@ class ListToList extends Component {
         }
       });
     });
-    this.setState({ rowsListA, rowsListB }, () => {
-      this.setState({ keyListA: Math.random(), keyListB: Math.random() });
-    });
+    this.setState({ rowsListA, rowsListB });
   }
 
   render() {
@@ -125,7 +121,6 @@ class ListToList extends Component {
         <div className="bx--row">
           <div className="bx--offset-xs-1 bx--col-xs-4">
             <DataTable
-              key={this.state.keyListA}
               rows={this.state.rowsListA}
               headers={this.state.headers}
               render={({
@@ -176,7 +171,6 @@ class ListToList extends Component {
           </div>
           <div className="bx--col-xs-4">
             <DataTable
-              key={this.state.keyListB}
               rows={this.state.rowsListB}
               headers={this.state.headers}
               render={({
