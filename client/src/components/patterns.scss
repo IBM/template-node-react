@@ -1,5 +1,6 @@
 .pattern-container {
-  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .display-form-item {
   margin: 20px 0 20px 0;
@@ -28,4 +29,20 @@
 }
 .bx--structured-list {
   margin-bottom: 2rem !important;
+}
+
+.bx--data-table-v2-container {
+  min-width: 0 !important;
+}
+.list-to-list-moving-btn {
+  margin: 5px;
+}
+.list-to-list-moving-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bx--grid {
+  margin: 0 !important;
+  padding: 0 !important;
 }

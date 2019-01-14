@@ -20,57 +20,47 @@ class ListToList extends Component {
     this.state = {
       rowsListA: [
         {
-          id: 'aa',
-          name: 'Load Balancer 1',
-          port: 25,
-          status: 'Disabled',
+          id: "aa",
+          name: "Load Balancer 1",
+          port: 25
         },
         {
-          id: 'ab',
-          name: 'Load Balancer 2',
-          port: 80,
-          status: 'Starting',
+          id: "ab",
+          name: "Load Balancer 2",
+          port: 80
         },
         {
-          id: 'ac',
-          name: 'Load Balancer 3',
-          port: 443,
-          status: 'Active',
-        },
+          id: "ac",
+          name: "Load Balancer 3",
+          port: 443
+        }
       ],
       rowsListB: [
         {
-          id: 'ba',
-          name: 'Load Balancer 4',
-          port: 3000,
-          status: 'Active',
+          id: "ba",
+          name: "Load Balancer 4",
+          port: 3000
         },
         {
-          id: 'bb',
-          name: 'Load Balancer 5',
-          port: 4000,
-          status: 'Starting',
+          id: "bb",
+          name: "Load Balancer 5",
+          port: 4000
         },
         {
-          id: 'bc',
-          name: 'Load Balancer 6',
-          port: 5000,
-          status: 'Active',
-        },
+          id: "bc",
+          name: "Load Balancer 6",
+          port: 5000
+        }
       ],
       headers: [
         {
-          key: 'name',
-          header: 'Name',
+          key: "name",
+          header: "Name"
         },
         {
-          key: 'port',
-          header: 'Port',
-        },
-        {
-          key: 'status',
-          header: 'Status',
-        },
+          key: "port",
+          header: "Port"
+        }
       ]
     };
   }
@@ -92,7 +82,7 @@ class ListToList extends Component {
       });
     });
     this.setState({ rowsListA, rowsListB });
-  }
+  };
 
   moveFromListBToA = event => {
     let rowsListA = this.state.rowsListA.slice();
@@ -108,18 +98,20 @@ class ListToList extends Component {
       });
     });
     this.setState({ rowsListA, rowsListB });
-  }
+  };
 
   render() {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
-            <strong>Description:</strong> This pattern is based on a Simple list pattern but will display two lists and allow the moving of data from one list to another and back again.
+          <div className="bx--offset-xs-1 bx--col-xs-11">
+            <strong>Description:</strong> This pattern is based on a Simple list
+            pattern but will display two lists and allow the moving of data from
+            one list to another and back again.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-1 bx--col-xs-4">
+          <div className=" bx--col-xs-12 bx--col-lg-5">
             <DataTable
               rows={this.state.rowsListA}
               headers={this.state.headers}
@@ -161,15 +153,24 @@ class ListToList extends Component {
               }}
             />
           </div>
-          <div className="bx--col-xs-2">
-            <br /><br />
-            <br /><br />
-            <Button onClick={this.moveFromListAToB}>&gt;&gt;</Button>
-            <br /><br />
-            <br />
-            <Button onClick={this.moveFromListBToA}>&lt;&lt;</Button>
+          <div className="bx--col-xs-12 bx--col-lg-2 list-to-list-moving-btn-container">
+            <div>
+              <Button
+                className="list-to-list-moving-btn"
+                onClick={this.moveFromListAToB}
+              >
+                &gt;&gt;
+              </Button>
+              <br />
+              <Button
+                className="list-to-list-moving-btn"
+                onClick={this.moveFromListBToA}
+              >
+                &lt;&lt;
+              </Button>
+            </div>
           </div>
-          <div className="bx--col-xs-4">
+          <div className="bx--col-xs-12 bx--col-lg-5">
             <DataTable
               rows={this.state.rowsListB}
               headers={this.state.headers}
@@ -179,7 +180,7 @@ class ListToList extends Component {
                 getHeaderProps,
                 getRowProps,
                 getSelectionProps,
-                selectedRows,
+                selectedRows
               }) => {
                 this.selectedRowsListB = selectedRows;
                 return (
@@ -212,7 +213,8 @@ class ListToList extends Component {
             />
           </div>
         </div>
-        <br /><br />
+        {/* <br />
+        <br /> */}
       </div>
     );
   }

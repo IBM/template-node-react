@@ -26,7 +26,7 @@ class DisplayForm extends Component {
     const data = this.state.data;
     const showDescription = this.state.showDescription;
     return (
-      <div className="bx--grid pattern-container">
+      <div className="bx--grid ">
         {showDescription && (
           <div className="bx--row pattern-description">
             <div className="bx--offset-xs-1 bx--col-xs-10">
@@ -36,7 +36,7 @@ class DisplayForm extends Component {
           </div>
         )}
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Tile>
               <Form>
                 {data.map(item => {

@@ -83,21 +83,25 @@ class MasterDetail extends Component {
     const columns = data[selectedRow].map(item => item.label);
 
     return (
-      <div className="bx--grid pattern-container">
+      <div className="bx--grid ">
         <div className="bx--row pattern-description">
           <div className="bx--offset-xs-1 bx--col-xs-10">
-            <strong>Description:</strong> This pattern will use a simple list
-            of table list and link to a display form.
-            </div>
+            <strong>Description:</strong> This pattern will use a simple list of
+            table list and link to a display form.
+          </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-2 bx--col-xs-8">
+          <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head key={key}>{key}</StructuredListCell>;
+                    return (
+                      <StructuredListCell head key={key}>
+                        {key}
+                      </StructuredListCell>
+                    );
                   })}
                 </StructuredListRow>
               </StructuredListHead>

@@ -12,6 +12,7 @@ import MasterDetail from "./MasterDetail";
 import CreateReadUpdateDelete from "./CreateReadUpdateDelete";
 import SearchList from "./SearchList";
 import SearchForm from "./SearchForm";
+import "./patterns.scss";
 
 class UIShellBody extends Component {
   components = {
@@ -34,7 +35,7 @@ class UIShellBody extends Component {
       this.props.patternName || "Display Form"
     ];
     return (
-      <div>
+      <div className="pattern-container">
         <PatternName showDescription={true} />
       </div>
     );
