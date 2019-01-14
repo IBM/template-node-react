@@ -19,22 +19,25 @@ class MasterDetail extends Component {
       [
         { label: "Name", value: "Lin", type: "textinput" },
         { label: "Address", value: "123 Main Street", type: "textinput" },
+        { label: "City", value: "Austin", type: "textinput" },
         { label: "State", value: ["TX"], type: "dropdown" },
-        { label: "Zip", value: "12345", type: "textinput" },
+        { label: "ZipCode", value: "12345", type: "textinput" },
         { label: "Country", value: ["United States"], type: "dropdown" }
       ],
       [
         { label: "Name", value: "Mak", type: "textinput" },
         { label: "Address", value: "45 2nd Street", type: "textinput" },
+        { label: "City", value: "Austin", type: "textinput" },
         { label: "State", value: ["TX"], type: "dropdown" },
-        { label: "Zip", value: "78766", type: "textinput" },
+        { label: "ZipCode", value: "78766", type: "textinput" },
         { label: "Country", value: ["United States"], type: "dropdown" }
       ],
       [
         { label: "Name", value: "Joe", type: "textinput" },
         { label: "Address", value: "40 Down Street", type: "textinput" },
+        { label: "City", value: "San Francisco", type: "textinput" },
         { label: "State", value: ["CA"], type: "dropdown" },
-        { label: "Zip", value: "90706", type: "textinput" },
+        { label: "ZipCode", value: "90706", type: "textinput" },
         { label: "Country", value: ["United States"], type: "dropdown" }
       ]
     ];
@@ -91,7 +94,7 @@ class MasterDetail extends Component {
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--col-xs-12">
+          <div className="bx--offset-xs-2 bx--col-xs-8">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>
@@ -99,7 +102,7 @@ class MasterDetail extends Component {
                   {columns.map(key => {
                     return (
                       <StructuredListCell head key={key}>
-                        {key}
+                        {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
                       </StructuredListCell>
                     );
                   })}

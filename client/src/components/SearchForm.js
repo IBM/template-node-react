@@ -8,24 +8,27 @@ class SearchForm extends Component {
     super(props);
     const defaultData = [
       {
-        Name: "Mak",
+        Name: "Lin",
         Address: "123 Main Street",
         City: "Austin",
         State: "TX",
+        ZipCode: "12345",
         Country: "USA"
       },
       {
-        Name: "Lin",
-        Address: "56 3rd Street",
+        Name: "Mak",
+        Address: "45 2nd Street",
         City: "Austin",
         State: "TX",
+        ZipCode: "78766",
         Country: "USA"
       },
       {
         Name: "Joe",
-        Address: "12 2nd Street",
-        City: "SF",
+        Address: "40 Down Street",
+        City: "San Francisco",
         State: "CA",
+        ZipCode: "90706",
         Country: "USA"
       }
     ];
@@ -73,7 +76,7 @@ class SearchForm extends Component {
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-2 bx--col-xs-8">
+          <div className="bx--offset-xs-3 bx--col-xs-6">
             <Search
               value={this.state.searchKeyword}
               labelText="Search"

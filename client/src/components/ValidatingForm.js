@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {
-  TextInput, Form, DropdownV2, Button, Tile
-} from 'carbon-components-react';
+import { TextInput, Form, DropdownV2, Button, Tile } from "carbon-components-react";
 import "./patterns.scss";
 
 let checkFlag = true;
@@ -10,8 +8,46 @@ class ValidatingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataToSave: {}
+      dataToSave: {},
+      showDescription: props.showDescription || false
     };
+    if (this.props.data) {
+      let dataToLoad = this.convertData(this.props.data);
+      this.state = {
+        ...this.state,
+        name: dataToLoad.Name,
+        address: dataToLoad.Address,
+        city: dataToLoad.City,
+        state: dataToLoad.State[0],
+        zipCode: dataToLoad.ZipCode,
+        country: dataToLoad.Country[0]
+      };
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.data) {
+      let dataToLoad = this.convertData(nextProps.data);
+      if (dataToLoad.Name === "Enter data below") {
+        dataToLoad.Name = "";
+      }
+      this.setState({
+        name: dataToLoad.Name,
+        address: dataToLoad.Address,
+        city: dataToLoad.City,
+        state: dataToLoad.State[0],
+        zipCode: dataToLoad.ZipCode,
+        country: dataToLoad.Country[0]
+      });
+    }
+  }
+
+  convertData = inputData => {
+    let output = {};
+    inputData.forEach(dataRow => {
+      output[dataRow.label] = dataRow.value;
+    });
+    return output;
   }
 
   saveData = event => {
@@ -73,18 +109,25 @@ class ValidatingForm extends Component {
         zipCode: this.state.zipCode,
         country: this.state.country
       };
-      this.setState({ dataToSave });
+      if (typeof this.props.updateRow === "function") {
+        this.props.updateRow(dataToSave);
+      } else {
+        this.setState({ dataToSave });
+      }
     }
   }
 
   render() {
+    const showDescription = this.state.showDescription;
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
-            <strong>Description:</strong> Presents a model object as a data input form and interacts with a validation service for validation.
+        {showDescription && (
+          <div className="bx--row pattern-description">
+            <div className="bx--offset-xs-1 bx--col-xs-10">
+              <strong>Description:</strong> Presents a model object as a data input form and interacts with a validation service for validation.
+            </div>
           </div>
-        </div>
+        )}
         <div className="bx--row">
           <div className="bx--offset-xs-3 bx--col-xs-6">
             <Tile>
@@ -155,22 +198,27 @@ class ValidatingForm extends Component {
                 />
                 {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
                 <br /><br />
-                <Button onClick={this.saveForm}>Submit</Button>
+                {showDescription &&
+                  <Button onClick={this.saveForm}>Submit</Button>
+                }
+                {!showDescription &&
+                  <Button onClick={this.saveForm}>Update</Button>
+                }
               </Form>
             </Tile>
           </div>
         </div>
         <br /><br />
-        <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
-            {Object.keys(this.state.dataToSave).length > 0 &&
+        {Object.keys(this.state.dataToSave).length > 0 &&
+          <div className="bx--row">
+            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
               <Tile>
                 {Object.keys(this.state.dataToSave).map(item => <p>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>
-            }
+              <br /><br />
+            </div>
           </div>
-        </div>
-        <br /><br />
+        }
       </div>
     );
   }

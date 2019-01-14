@@ -82,7 +82,7 @@ class SearchList extends Component {
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-2 bx--col-xs-8">
+          <div className="bx--offset-xs-3 bx--col-xs-6">
             <Search
               value={this.state.searchKeyword}
               labelText="Search"

@@ -8,8 +8,9 @@ class DisplayForm extends Component {
     const defaultData = [
       { label: "Name", value: "John Doe", type: "textinput" },
       { label: "Address", value: "123 Main Street", type: "textinput" },
-      { label: "State", value: ["TX", "Other"], type: "dropdown" },
-      { label: "Zip", value: "12345", type: "textinput" },
+      { label: "City", value: "Anytown", type: "textinput" },
+      { label: "State", value: ["TX"], type: "dropdown" },
+      { label: "ZipCode", value: "12345", type: "textinput" },
       { label: "Country", value: ["United States"], type: "dropdown" }
     ];
     this.state = {
@@ -36,7 +37,7 @@ class DisplayForm extends Component {
           </div>
         )}
         <div className="bx--row">
-          <div className="bx--col-xs-12">
+          <div className="bx--offset-xs-3 bx--col-xs-6">
             <Tile>
               <Form>
                 {data.map(item => {
@@ -47,7 +48,7 @@ class DisplayForm extends Component {
                           disabled
                           id={item.label}
                           value={item.value}
-                          labelText={item.label}
+                          labelText={item.label.charAt(0).toUpperCase() + item.label.slice(1).replace(/([A-Z])/g, " $1")}
                         />
                       </div>
                     );

@@ -14,7 +14,34 @@ import "./patterns.scss";
 class TableList extends Component {
   constructor(props) {
     super(props);
+    const data = [
+      {
+        Name: "Lin",
+        Address: "123 Main Street",
+        City: "Austin",
+        State: "TX",
+        ZipCode: "12345",
+        Country: "United States"
+      },
+      {
+        Name: "Mak",
+        Address: "45 2nd Street",
+        City: "Austin",
+        State: "TX",
+        ZipCode: "78766",
+        Country: "United States"
+      },
+      {
+        Name: "Joe",
+        Address: "40 Down Street",
+        City: "San Francisco",
+        State: "CA",
+        ZipCode: "90706",
+        Country: "United States"
+      }
+    ];
     this.state = {
+      data,
       selectedRow: 0
     };
   }
@@ -54,11 +81,7 @@ class TableList extends Component {
   };
 
   render() {
-    const data = [
-      { Name: "Mak Kader", Address: "address A", City: "Austin" },
-      { Name: "Lin Song", Address: "address B", City: "Austin" },
-      { Name: "Joe John", Address: "address C", City: "San francisco" }
-    ];
+    const data = this.state.data;
     const columns = Object.keys(data[0]);
     return (
       <div className="bx--grid pattern-container">
@@ -69,13 +92,15 @@ class TableList extends Component {
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--offset-xs-2 bx--col-xs-8">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head key={key}>{key}</StructuredListCell>;
+                    return <StructuredListCell head key={key}>
+                      {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
+                    </StructuredListCell>;
                   })}
                 </StructuredListRow>
               </StructuredListHead>
