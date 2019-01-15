@@ -31,10 +31,12 @@
   padding: 20px 0 35px 0;
   line-height: 1.5;
 }
+.pattern-title {
+  font-weight: 800;
+}
 .bx--structured-list {
   margin-bottom: 2rem !important;
 }
-
 .bx--data-table-v2-container {
   min-width: 0 !important;
 }
@@ -50,6 +52,9 @@
   margin: 0 !important;
   padding: 0 !important;
 }
-.pattern-title-description-widget {
-  background: #edf4ff !important;
+.bx--inline-notification__icon {
+  display: inline-block !important;
+}
+.bx--inline-notification__text-wrapper {
+  max-width: 100% !important;
 }

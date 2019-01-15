@@ -9,8 +9,9 @@ import {
   Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
-import "./patterns.scss";
+import Header from "./Header";
 import DisplayForm from "./DisplayForm";
+import "./patterns.scss";
 
 class MasterDetail extends Component {
   constructor(props) {
@@ -87,12 +88,10 @@ class MasterDetail extends Component {
 
     return (
       <div className="bx--grid ">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern will use a simple list of
-            table list and link to a display form.
-          </div>
-        </div>
+        <Header
+          title="Master Detail"
+          subtitle="This pattern will use a simple list of table list and link to a display form."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
@@ -102,7 +101,8 @@ class MasterDetail extends Component {
                   {columns.map(key => {
                     return (
                       <StructuredListCell head key={key}>
-                        {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
+                        {key.charAt(0).toUpperCase() +
+                          key.slice(1).replace(/([A-Z])/g, " $1")}
                       </StructuredListCell>
                     );
                   })}

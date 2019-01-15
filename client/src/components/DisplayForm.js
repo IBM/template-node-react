@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import {
-  TextInput,
-  Form,
-  DropdownV2,
-  Tile,
-  InlineNotification
-} from "carbon-components-react";
+import { TextInput, Form, DropdownV2, Tile } from "carbon-components-react";
+import Header from "./Header";
 import "./patterns.scss";
 
 class DisplayForm extends Component {
@@ -35,41 +30,10 @@ class DisplayForm extends Component {
     return (
       <div className="bx--grid">
         {showDescription && (
-          <div className="bx--row pattern-description">
-            <div className="bx--col-xs-12">
-              <div
-                data-notification
-                class="bx--inline-notification  bx--inline-notification--success pattern-title-description-widget"
-                role="alert"
-              >
-                <div class="bx--inline-notification__details">
-                  <svg
-                    class="bx--inline-notification__icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm1-3V7H7v6h2zM8 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                  </svg>
-                  <div class="bx--inline-notification__text-wrapper">
-                    <p class="bx--inline-notification__title">Display Form</p>
-                    <p class="bx--inline-notification__subtitle">
-                      Displays a model object as a form in a read only display.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  data-notification-btn
-                  class="bx--inline-notification__close-button"
-                  type="button"
-                  aria-label="close"
-                />
-              </div>
-              {/* <strong>Description:</strong> Displays a model object as a form in
-              a read only display. */}
-            </div>
-          </div>
+          <Header
+            title="Display Form"
+            subtitle="Displays a model object as a form in a read only display."
+          />
         )}
         <div className="bx--row">
           <div className="bx--col-xs-12">

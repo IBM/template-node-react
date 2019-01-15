@@ -9,6 +9,7 @@ import {
   Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
+import Header from "./Header";
 import "./patterns.scss";
 
 class SimpleList extends Component {
@@ -54,19 +55,19 @@ class SimpleList extends Component {
     const data = ["row1", "row2", "row3"];
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern will display an array of
-            model objects in a simple list column list.
-          </div>
-        </div>
+        <Header
+          title="Simple List"
+          subtitle="This pattern will display an array of model objects in a simple list column list."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>
                   <StructuredListCell head />
-                  <StructuredListCell head>Simple List Title</StructuredListCell>
+                  <StructuredListCell head>
+                    Simple List Title
+                  </StructuredListCell>
                 </StructuredListRow>
               </StructuredListHead>
 

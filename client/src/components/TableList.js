@@ -9,6 +9,7 @@ import {
   Icon
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
+import Header from "./Header";
 import "./patterns.scss";
 
 class TableList extends Component {
@@ -85,12 +86,10 @@ class TableList extends Component {
     const columns = Object.keys(data[0]);
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern will display and array of
-            model objects in a multi column grid/table.
-          </div>
-        </div>
+        <Header
+          title="Table List"
+          subtitle="This pattern will display and array of model objects in a multi column grid/table."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
@@ -98,9 +97,12 @@ class TableList extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head key={key}>
-                      {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
-                    </StructuredListCell>;
+                    return (
+                      <StructuredListCell head key={key}>
+                        {key.charAt(0).toUpperCase() +
+                          key.slice(1).replace(/([A-Z])/g, " $1")}
+                      </StructuredListCell>
+                    );
                   })}
                 </StructuredListRow>
               </StructuredListHead>

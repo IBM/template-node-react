@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Search } from "carbon-components-react";
 import "./patterns.scss";
+import Header from "./Header";
 import DisplayForm from "./DisplayForm";
 
 class SearchForm extends Component {
@@ -58,7 +59,8 @@ class SearchForm extends Component {
             .toLocaleLowerCase()
             .includes(this.state.searchKeyword.toLocaleLowerCase())
         );
-      }, false));
+      }, false)
+    );
     return subset;
   };
 
@@ -68,13 +70,10 @@ class SearchForm extends Component {
 
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern uses a Validating Form
-            pattern and is linked to a Display Form pattern for a single item
-            display.
-          </div>
-        </div>
+        <Header
+          title="Search Form"
+          subtitle="This pattern uses a Validating Form pattern and is linked to a Display Form pattern for a single item display."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <Search
@@ -97,8 +96,8 @@ class SearchForm extends Component {
                   data={this.formatDataForDisplayForm(filteredData[0])}
                 />
               ) : (
-                  <p className="center-align">No matching result</p>
-                )}
+                <p className="center-align">No matching result</p>
+              )}
             </div>
           </div>
         )}

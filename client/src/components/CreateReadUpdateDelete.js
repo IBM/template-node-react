@@ -10,8 +10,9 @@ import {
   Button
 } from "carbon-components-react";
 import { iconCheckmarkSolid } from "carbon-icons";
-import "./patterns.scss";
+import Header from "./Header";
 import ValidatingForm from "./ValidatingForm";
+import "./patterns.scss";
 
 class CreateReadUpdateDelete extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class CreateReadUpdateDelete extends Component {
       { label: "Country", value: [""], type: "dropdown" }
     ];
     this.setState({ data, selectedRow });
-  }
+  };
 
   deleteRow = () => {
     let data = this.state.data.slice();
@@ -72,7 +73,7 @@ class CreateReadUpdateDelete extends Component {
       data.splice(this.state.selectedRow, 1);
       this.setState({ data, selectedRow: 0 });
     }
-  }
+  };
 
   updateRow = newData => {
     let data = this.state.data.slice();
@@ -86,7 +87,7 @@ class CreateReadUpdateDelete extends Component {
       { label: "Country", value: [newData.country], type: "dropdown" }
     ];
     this.setState({ data });
-  }
+  };
 
   renderRow = (row, id) => {
     return (
@@ -124,11 +125,10 @@ class CreateReadUpdateDelete extends Component {
 
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This composite pattern is build from the Table List pattern and uses the Validating Form pattern for creating items, Update Form pattern for Update.
-          </div>
-        </div>
+        <Header
+          title="Create, Read, Update, Delete"
+          subtitle="This composite pattern is build from the Table List pattern and uses the Validating Form pattern for creating items, Update Form pattern for Update."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
@@ -136,9 +136,12 @@ class CreateReadUpdateDelete extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   {columns.map(key => {
-                    return <StructuredListCell head key={key}>
-                      {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
-                    </StructuredListCell>;
+                    return (
+                      <StructuredListCell head key={key}>
+                        {key.charAt(0).toUpperCase() +
+                          key.slice(1).replace(/([A-Z])/g, " $1")}
+                      </StructuredListCell>
+                    );
                   })}
                 </StructuredListRow>
               </StructuredListHead>
@@ -159,10 +162,14 @@ class CreateReadUpdateDelete extends Component {
             <Button onClick={this.deleteRow}>Delete Row</Button>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div className="bx--row">
           <div className="bx--col-xs-12">
-            <ValidatingForm data={data[selectedRow]} updateRow={this.updateRow} />
+            <ValidatingForm
+              data={data[selectedRow]}
+              updateRow={this.updateRow}
+            />
           </div>
         </div>
       </div>

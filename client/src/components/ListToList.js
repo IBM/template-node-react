@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { DataTable, Button } from "carbon-components-react";
+import Header from "./Header";
 import "./patterns.scss";
 
 const {
@@ -103,13 +104,10 @@ class ListToList extends Component {
   render() {
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern is based on a Simple list
-            pattern but will display two lists and allow the moving of data from
-            one list to another and back again.
-          </div>
-        </div>
+        <Header
+          title="List To List"
+          subtitle="This pattern is based on a Simple list pattern but will display two lists and allow the moving of data from one list to another and back again."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12 bx--col-lg-5">
             <DataTable

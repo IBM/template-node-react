@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Search, DataTable } from "carbon-components-react";
+import Header from "./Header";
 import "./patterns.scss";
 
 const {
@@ -17,23 +18,23 @@ class SearchList extends Component {
     super(props);
     const rowsList = [
       {
-        id: '1',
-        name: 'Load Balancer 1',
-        port: '25',
-        status: 'Disabled',
+        id: "1",
+        name: "Load Balancer 1",
+        port: "25",
+        status: "Disabled"
       },
       {
-        id: '2',
-        name: 'Load Balancer 2',
-        port: '80',
-        status: 'Starting',
+        id: "2",
+        name: "Load Balancer 2",
+        port: "80",
+        status: "Starting"
       },
       {
-        id: '3',
-        name: 'Load Balancer 3',
-        port: '443',
-        status: 'Active',
-      },
+        id: "3",
+        name: "Load Balancer 3",
+        port: "443",
+        status: "Active"
+      }
     ];
     this.state = {
       searchKeyword: "",
@@ -41,17 +42,17 @@ class SearchList extends Component {
       rowsList: rowsList,
       headers: [
         {
-          key: 'name',
-          header: 'Name',
+          key: "name",
+          header: "Name"
         },
         {
-          key: 'port',
-          header: 'Port',
+          key: "port",
+          header: "Port"
         },
         {
-          key: 'status',
-          header: 'Status',
-        },
+          key: "status",
+          header: "Status"
+        }
       ]
     };
   }
@@ -66,7 +67,8 @@ class SearchList extends Component {
               .toLocaleLowerCase()
               .includes(this.state.searchKeyword.toLocaleLowerCase())
           );
-        }, false));
+        }, false)
+      );
       this.setState({ rowsList: subset });
     });
   };
@@ -74,13 +76,10 @@ class SearchList extends Component {
   render() {
     return (
       <div className="bx--grid pattern-container">
-        <div className="bx--row pattern-description">
-          <div className="bx--col-xs-12">
-            <strong>Description:</strong> This pattern uses a Validating Form
-            pattern linked to a Table List pattern for display of the items
-            that have been searched for.
-          </div>
-        </div>
+        <Header
+          title="Search List"
+          subtitle="This pattern uses a Validating Form pattern linked to a Table List pattern for display of the items that have been searched for."
+        />
         <div className="bx--row">
           <div className="bx--col-xs-12">
             <Search
@@ -94,10 +93,11 @@ class SearchList extends Component {
             />
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div className="bx--row">
           <div className="bx--col-xs-12">
-            {this.state.rowsList.length !== 0 &&
+            {this.state.rowsList.length !== 0 && (
               <DataTable
                 rows={this.state.rowsList}
                 headers={this.state.headers}
@@ -106,7 +106,7 @@ class SearchList extends Component {
                   headers,
                   getHeaderProps,
                   getRowProps,
-                  getSelectionProps,
+                  getSelectionProps
                 }) => {
                   return (
                     <TableContainer title="">
@@ -124,7 +124,9 @@ class SearchList extends Component {
                           {rows.map(row => (
                             <TableRow {...getRowProps({ row })}>
                               {row.cells.map(cell => (
-                                <TableCell key={cell.id}>{cell.value}</TableCell>
+                                <TableCell key={cell.id}>
+                                  {cell.value}
+                                </TableCell>
                               ))}
                             </TableRow>
                           ))}
@@ -134,13 +136,14 @@ class SearchList extends Component {
                   );
                 }}
               />
-            }
-            {this.state.rowsList.length === 0 &&
+            )}
+            {this.state.rowsList.length === 0 && (
               <p className="center-align">No matching result</p>
-            }
+            )}
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
       </div>
     );
   }
