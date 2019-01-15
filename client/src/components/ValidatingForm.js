@@ -138,8 +138,7 @@ class ValidatingForm extends Component {
         {showDescription && (
           <Header
             title="Validating Form"
-            subtitle="Presents a model object as a data
-          input form and interacts with a validation service for validation."
+            subtitle="Presents a model object as a data input form and interacts with a validation service for validation."
           />
         )}
         <div className="bx--row">
