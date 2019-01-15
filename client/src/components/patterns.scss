@@ -1,6 +1,7 @@
 .pattern-container {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: left;
 }
 .display-form-item {
   margin: 20px 0 20px 0;
@@ -11,6 +12,9 @@
 .left-align {
   display: block !important;
   text-align: left;
+}
+.center-align {
+  text-align: center;
 }
 .dropdown-invalid {
   max-height: 12.5rem;

@@ -75,14 +75,14 @@ class SearchList extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern uses a Validating Form
             pattern linked to a Table List pattern for display of the items
             that have been searched for.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Search
               value={this.state.searchKeyword}
               labelText="Search"
@@ -96,7 +96,7 @@ class SearchList extends Component {
         </div>
         <br /><br />
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             {this.state.rowsList.length !== 0 &&
               <DataTable
                 rows={this.state.rowsList}
@@ -136,7 +136,7 @@ class SearchList extends Component {
               />
             }
             {this.state.rowsList.length === 0 &&
-              <p>No matching result</p>
+              <p className="center-align">No matching result</p>
             }
           </div>
         </div>

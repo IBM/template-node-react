@@ -123,13 +123,13 @@ class ValidatingForm extends Component {
       <div className="bx--grid pattern-container">
         {showDescription && (
           <div className="bx--row pattern-description">
-            <div className="bx--offset-xs-1 bx--col-xs-10">
+            <div className="bx--col-xs-12">
               <strong>Description:</strong> Presents a model object as a data input form and interacts with a validation service for validation.
             </div>
           </div>
         )}
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Tile>
               <Form>
                 <TextInput
@@ -198,12 +198,14 @@ class ValidatingForm extends Component {
                 />
                 {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
                 <br /><br />
-                {showDescription &&
-                  <Button onClick={this.saveForm}>Submit</Button>
-                }
-                {!showDescription &&
-                  <Button onClick={this.saveForm}>Update</Button>
-                }
+                <div className="center-align">
+                  {showDescription &&
+                    <Button onClick={this.saveForm}>Submit</Button>
+                  }
+                  {!showDescription &&
+                    <Button onClick={this.saveForm}>Update</Button>
+                  }
+                </div>
               </Form>
             </Tile>
           </div>
@@ -211,7 +213,7 @@ class ValidatingForm extends Component {
         <br /><br />
         {Object.keys(this.state.dataToSave).length > 0 &&
           <div className="bx--row">
-            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
+            <div className="bx--col-xs-12 left-align">
               <Tile>
                 {Object.keys(this.state.dataToSave).map(item => <p>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>

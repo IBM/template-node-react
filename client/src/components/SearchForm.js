@@ -69,14 +69,14 @@ class SearchForm extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern uses a Validating Form
             pattern and is linked to a Display Form pattern for a single item
             display.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Search
               value={this.state.searchKeyword}
               labelText="Search"
@@ -97,7 +97,7 @@ class SearchForm extends Component {
                   data={this.formatDataForDisplayForm(filteredData[0])}
                 />
               ) : (
-                  <p>No matching result</p>
+                  <p className="center-align">No matching result</p>
                 )}
             </div>
           </div>

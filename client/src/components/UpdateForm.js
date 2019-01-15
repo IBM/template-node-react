@@ -99,12 +99,12 @@ class UpdateForm extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> Update form is based on the Display Form pattern but will display model data and then validate ready for it to be updated.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Tile>
               <Form>
                 <TextInput
@@ -173,7 +173,9 @@ class UpdateForm extends Component {
                 />
                 {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
                 <br /><br />
-                <Button onClick={this.saveForm}>Update</Button>
+                <div className="center-align">
+                  <Button onClick={this.saveForm}>Update</Button>
+                </div>
               </Form>
             </Tile>
           </div>
@@ -181,7 +183,7 @@ class UpdateForm extends Component {
         <br /><br />
         {Object.keys(this.state.dataToSave).length > 0 &&
           <div className="bx--row">
-            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
+            <div className="bx--col-xs-12 left-align">
               <Tile>
                 {Object.keys(this.state.dataToSave).map(item => <p key={item}>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>

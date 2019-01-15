@@ -86,13 +86,13 @@ class TableList extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern will display and array of
             model objects in a multi column grid/table.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-2 bx--col-xs-8">
+          <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>

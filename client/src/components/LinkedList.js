@@ -120,12 +120,12 @@ class LinkedList extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern will link multiple list or combo controls together so when a selection on one list is made it may change the information displayed in the other linked list.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Tile>
               <Form>
                 <p className="bx--label left-align">Country</p>
@@ -161,7 +161,9 @@ class LinkedList extends Component {
                 />
                 {this.state.cityInvalid && <p className="dropdown-invalid">Please select a city..</p>}
                 <br /><br />
-                <Button onClick={this.saveForm}>Submit</Button>
+                <div className="center-align">
+                  <Button onClick={this.saveForm}>Submit</Button>
+                </div>
               </Form>
             </Tile>
           </div>
@@ -169,7 +171,7 @@ class LinkedList extends Component {
         <br /><br />
         {Object.keys(this.state.dataToSave).length > 0 &&
           <div className="bx--row">
-            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
+            <div className="bx--col-xs-12 left-align">
               <Tile>
                 {Object.keys(this.state.dataToSave).map(item => <p key={item}>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1)}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>

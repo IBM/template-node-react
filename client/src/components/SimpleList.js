@@ -55,13 +55,13 @@ class SimpleList extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern will display an array of
             model objects in a simple list column list.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>

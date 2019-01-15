@@ -125,12 +125,12 @@ class CreateReadUpdateDelete extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This composite pattern is build from the Table List pattern and uses the Validating Form pattern for creating items, Update Form pattern for Update.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-2 bx--col-xs-8">
+          <div className="bx--col-xs-12">
             <StructuredListWrapper selection border>
               <StructuredListHead>
                 <StructuredListRow head>
@@ -151,11 +151,11 @@ class CreateReadUpdateDelete extends Component {
             </StructuredListWrapper>
           </div>
         </div>
-        <div className="bx--row">
-          <div className="bx--offset-xs-5 bx--col-xs-1">
+        <div className="bx--row center-align">
+          <div className="bx--offset-xs-4 bx--col-xs-2">
             <Button onClick={this.addRow}>Add Row</Button>
           </div>
-          <div className="bx--col-xs-1">
+          <div className="bx--col-xs-2">
             <Button onClick={this.deleteRow}>Delete Row</Button>
           </div>
         </div>

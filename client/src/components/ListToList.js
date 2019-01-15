@@ -104,14 +104,14 @@ class ListToList extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-11">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> This pattern is based on a Simple list
             pattern but will display two lists and allow the moving of data from
             one list to another and back again.
           </div>
         </div>
         <div className="bx--row">
-          <div className=" bx--col-xs-12 bx--col-lg-5">
+          <div className="bx--col-xs-12 bx--col-lg-5">
             <DataTable
               rows={this.state.rowsListA}
               headers={this.state.headers}

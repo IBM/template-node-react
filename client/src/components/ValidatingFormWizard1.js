@@ -111,12 +111,12 @@ class ValidatingFormWizard1 extends Component {
     return (
       <div className="bx--grid pattern-container">
         <div className="bx--row pattern-description">
-          <div className="bx--offset-xs-1 bx--col-xs-10">
+          <div className="bx--col-xs-12">
             <strong>Description:</strong> The Validating Form Wizard is based on the Validating Form pattern but displays a large form in the style of Paged Wizard, Tabbed Page or Individual Pages. This will depend on the channel device characteristics.
           </div>
         </div>
         <div className="bx--row">
-          <div className="bx--offset-xs-3 bx--col-xs-6">
+          <div className="bx--col-xs-12">
             <Tile>
               <Form>
                 <Tabs
@@ -159,7 +159,9 @@ class ValidatingFormWizard1 extends Component {
                         invalidText="Please enter a last name.."
                       />
                       <br /><br />
-                      <Button onClick={this.nextTab}>Next</Button>
+                      <div className="center-align">
+                        <Button onClick={this.nextTab}>Next</Button>
+                      </div>
                     </div>
                   </Tab>
                   <Tab
@@ -222,7 +224,9 @@ class ValidatingFormWizard1 extends Component {
                       />
                       {this.state.countryInvalid && <p className="dropdown-invalid">Please select a country..</p>}
                       <br /><br />
-                      <Button onClick={this.saveForm}>Submit</Button>
+                      <div className="center-align">
+                        <Button onClick={this.saveForm}>Submit</Button>
+                      </div>
                     </div>
                   </Tab>
                 </Tabs>
@@ -233,7 +237,7 @@ class ValidatingFormWizard1 extends Component {
         <br /><br />
         {Object.keys(this.state.dataToSave).length > 0 &&
           <div className="bx--row">
-            <div className="bx--offset-xs-3 bx--col-xs-6 left-align">
+            <div className="bx--col-xs-12 left-align">
               <Tile>
                 {Object.keys(this.state.dataToSave).map(item => <p>&nbsp;&nbsp;<strong>{item.charAt(0).toUpperCase() + item.slice(1).replace(/([A-Z])/g, " $1")}:</strong> {this.state.dataToSave[item]}</p>)}
               </Tile>
