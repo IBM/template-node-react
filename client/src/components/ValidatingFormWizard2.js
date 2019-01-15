@@ -167,7 +167,7 @@ class ValidatingFormWizard2 extends Component {
                     />
                     <br />
                     <br />
-                    <div className="center-align">
+                    <div className="left-align">
                       Page 1 of 2
                       <br />
                       <br />
@@ -307,7 +307,7 @@ class ValidatingFormWizard2 extends Component {
                     )}
                     <br />
                     <br />
-                    <div className="center-align">
+                    <div className="left-align">
                       Page 2 of 2
                       <br />
                       <br />

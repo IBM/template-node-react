@@ -173,7 +173,7 @@ class ValidatingFormWizard1 extends Component {
                       />
                       <br />
                       <br />
-                      <div className="center-align">
+                      <div className="left-align">
                         <Button onClick={this.nextTab}>Next</Button>
                       </div>
                     </div>
@@ -310,7 +310,7 @@ class ValidatingFormWizard1 extends Component {
                       )}
                       <br />
                       <br />
-                      <div className="center-align">
+                      <div className="left-align">
                         <Button onClick={this.saveForm}>Submit</Button>
                       </div>
                     </div>

@@ -154,12 +154,10 @@ class CreateReadUpdateDelete extends Component {
             </StructuredListWrapper>
           </div>
         </div>
-        <div className="bx--row center-align">
-          <div className="bx--offset-xs-4 bx--col-xs-2">
-            <Button onClick={this.addRow}>Add Row</Button>
-          </div>
-          <div className="bx--col-xs-2">
-            <Button onClick={this.deleteRow}>Delete Row</Button>
+        <div className="bx--row left-align">
+          <div className="bx--col-xs-12">
+            <Button className="add-delete-row-buttons" onClick={this.addRow}>Add Row</Button>
+            <Button className="add-delete-row-buttons" onClick={this.deleteRow}>Delete Row</Button>
           </div>
         </div>
         <br />

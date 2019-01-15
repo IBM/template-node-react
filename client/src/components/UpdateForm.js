@@ -257,7 +257,7 @@ class UpdateForm extends Component {
                 )}
                 <br />
                 <br />
-                <div className="center-align">
+                <div className="left-align">
                   <Button onClick={this.saveForm}>Update</Button>
                 </div>
               </Form>

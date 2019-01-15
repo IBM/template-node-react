@@ -28,10 +28,11 @@
   text-align: left;
 }
 .pattern-description {
-  padding: 20px 0 35px 0;
+  padding: 20px 0 20px 0;
   line-height: 1.5;
 }
 .pattern-title {
+  font-size: 2rem;
   font-weight: 800;
 }
 .bx--structured-list {
@@ -57,4 +58,8 @@
 }
 .bx--inline-notification__text-wrapper {
   max-width: 100% !important;
+}
+.add-delete-row-buttons {
+  margin-left: 15px;
+  margin-right: 15px;
 }

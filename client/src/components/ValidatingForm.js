@@ -282,7 +282,7 @@ class ValidatingForm extends Component {
                 )}
                 <br />
                 <br />
-                <div className="center-align">
+                <div className="left-align">
                   {showDescription && (
                     <Button onClick={this.saveForm}>Submit</Button>
                   )}
