@@ -45,7 +45,8 @@ class CreateReadUpdateDelete extends Component {
     ];
     this.state = {
       selectedRow: 0,
-      data
+      data,
+      adding: false
     };
   }
 
@@ -64,12 +65,12 @@ class CreateReadUpdateDelete extends Component {
       { label: "ZipCode", value: "", type: "textinput" },
       { label: "Country", value: [""], type: "dropdown" }
     ];
-    this.setState({ data, selectedRow });
+    this.setState({ data, selectedRow, adding: true });
   };
 
   deleteRow = () => {
     let data = this.state.data.slice();
-    if (data.length > 1) {
+    if (data.length > 0) {
       data.splice(this.state.selectedRow, 1);
       this.setState({ data, selectedRow: 0 });
     }
@@ -87,6 +88,11 @@ class CreateReadUpdateDelete extends Component {
       { label: "Country", value: [newData.country], type: "dropdown" }
     ];
     this.setState({ data });
+  };
+
+  toggleAdding = () => {
+    const adding = this.state.adding;
+    this.setState({ adding: !adding });
   };
 
   renderRow = (row, id) => {
@@ -121,7 +127,9 @@ class CreateReadUpdateDelete extends Component {
   render() {
     const selectedRow = this.state.selectedRow;
     const data = this.state.data;
-    const columns = data[selectedRow].map(item => item.label);
+    const columns = data.length
+      ? data[selectedRow].map(item => item.label)
+      : [];
 
     return (
       <div className="bx--grid pattern-container">
@@ -156,20 +164,28 @@ class CreateReadUpdateDelete extends Component {
         </div>
         <div className="bx--row left-align">
           <div className="bx--col-xs-12">
-            <Button className="add-delete-row-buttons" onClick={this.addRow}>Add Row</Button>
-            <Button className="add-delete-row-buttons" onClick={this.deleteRow}>Delete Row</Button>
+            <Button className="add-delete-row-buttons" onClick={this.addRow}>
+              Add Row
+            </Button>
+            <Button className="add-delete-row-buttons" onClick={this.deleteRow}>
+              Delete Row
+            </Button>
           </div>
         </div>
         <br />
         <br />
-        <div className="bx--row">
-          <div className="bx--col-xs-12">
-            <ValidatingForm
-              data={data[selectedRow]}
-              updateRow={this.updateRow}
-            />
+        {data.length > 0 && (
+          <div className="bx--row">
+            <div className="bx--col-xs-12">
+              <ValidatingForm
+                data={data[selectedRow]}
+                updateRow={this.updateRow}
+                adding={this.state.adding}
+                toggleAdding={this.toggleAdding}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }

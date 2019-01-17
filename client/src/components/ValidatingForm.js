@@ -128,6 +128,9 @@ class ValidatingForm extends Component {
       } else {
         this.setState({ dataToSave });
       }
+      if (this.props.adding) {
+        this.props.toggleAdding();
+      }
     }
   };
 
@@ -287,7 +290,9 @@ class ValidatingForm extends Component {
                     <Button onClick={this.saveForm}>Submit</Button>
                   )}
                   {!showDescription && (
-                    <Button onClick={this.saveForm}>Update</Button>
+                    <Button onClick={this.saveForm}>
+                      {this.props.adding ? "Add" : "Update"}
+                    </Button>
                   )}
                 </div>
               </Form>
