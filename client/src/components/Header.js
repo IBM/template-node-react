@@ -7,15 +7,15 @@ class Header extends Component {
     return (
       <div className="bx--row pattern-description">
         <div className="bx--col-xs-12">
-          <h1 class="pattern-title">{title}</h1>
+          <h1 className="pattern-title">{title}</h1>
           <div
             data-notification
-            class="bx--inline-notification bx--inline-notification--info"
+            className="bx--inline-notification bx--inline-notification--info"
             role="alert"
           >
-            <div class="bx--inline-notification__details">
+            <div className="bx--inline-notification__details">
               <svg
-                class="bx--inline-notification__icon"
+                className="bx--inline-notification__icon"
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
@@ -23,9 +23,9 @@ class Header extends Component {
               >
                 <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm1-3V7H7v6h2zM8 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
               </svg>
-              <div class="bx--inline-notification__text-wrapper">
-                <p class="bx--inline-notification__title">{""}</p>
-                <p class="bx--inline-notification__subtitle">{subtitle}</p>
+              <div className="bx--inline-notification__text-wrapper">
+                <p className="bx--inline-notification__title">{""}</p>
+                <p className="bx--inline-notification__subtitle">{subtitle}</p>
               </div>
             </div>
           </div>
