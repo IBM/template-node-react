@@ -55,7 +55,6 @@ class UIShell extends Component {
             <SideNavMenu
               defaultExpanded
               icon={<Fade16 />}
-              isActive
               title="12 Design Patterns"
             >
               {this.renderSideNavItem("Display Form")}
