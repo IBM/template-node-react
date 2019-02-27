@@ -36,7 +36,7 @@ class UIShell extends Component {
 
   renderSideNavItem = label => {
     return (
-      <SideNavMenuItem href="# " aria-current={label === this.state.patternName ? "page" : null} onClick={e => this.onPatternSelection(label)}>{label}</SideNavMenuItem>
+      <SideNavMenuItem href="# " isActive={label === this.state.patternName ? true : false} onClick={e => this.onPatternSelection(label)}>{label}</SideNavMenuItem>
     );
   };
 
