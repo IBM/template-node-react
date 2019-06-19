@@ -5,8 +5,6 @@
 //     serviceName:'frontend'
 // });
 
-require("appmetrics-dash").attach();
-require("appmetrics-prometheus").attach();
 const appName = require("./../package").name;
 const http = require("http");
 const express = require("express");
@@ -37,9 +35,9 @@ require("./routers/index")(app, server);
 const port = process.env.PORT || localConfig.port;
 server.listen(port, function() {
   logger.info(
-    `catalyst-webui-react listening on http://localhost:${port}/appmetrics-dash`
+    `Server listening on http://localhost:${port}/appmetrics-dash`
   );
-  logger.info(`catalyst-webui-react listening on http://localhost:${port}`);
+  logger.info(`Server listening on http://localhost:${port}`);
 });
 
 app.use(function(req, res, next) {

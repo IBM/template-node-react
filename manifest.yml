@@ -1,7 +1,7 @@
 applications:
   - instances: 1
     timeout: 180
-    name: catalyst-webui-react
+    name: template-node-react
     buildpack: sdk-for-nodejs
     command: npm start
     memory: 256M

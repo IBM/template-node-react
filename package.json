@@ -1,7 +1,8 @@
 {
-  "name": "catalyst-webui-react",
+  "name": "template-node-react",
   "version": "1.0.0",
-  "description": "A generated IBM Cloud application",
+  "org": "yourorg",
+  "description": "12 UI Patterns with React and Node.js",
   "private": true,
   "engines": {
     "node": "^8.11.1"
@@ -11,7 +12,16 @@
     "debug": "chmod +x run-debug && ./run-debug",
     "test": "nyc mocha --exit",
     "dev": "nodemon server/server.js",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "build:image": "./scripts/build.sh $npm_package_name $npm_package_version",
+    "pretest:image": "npm run build:image",
+    "test:image": "npm run test:only",
+    "test:only": "./scripts/test.sh $npm_package_name $npm_package_version",
+    "prepush": "npm test",
+    "push": "npm run push:only",
+    "push:only": "./scripts/publish.sh $npm_package_org $npm_package_name $npm_package_version",
+    "pull": "./scripts/pull.sh $npm_package_org $npm_package_name $npm_package_version",
+    "start:image": "docker run -p 8080:80 $npm_package_name:$npm_package_version "
   },
   "nodemonConfig": {
     "env": {
@@ -19,9 +29,6 @@
     }
   },
   "dependencies": {
-    "appmetrics-dash": "^4.0.0",
-    "appmetrics-prometheus": "^2.0.0",
-    "appmetrics-zipkin": "^1.0.4",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
