@@ -38,6 +38,8 @@ server.listen(port, function() {
     `Server listening on http://localhost:${port}/appmetrics-dash`
   );
   logger.info(`Server listening on http://localhost:${port}`);
+  console.log(`Server listening on http://localhost:${port}`);
+
 });
 
 app.use(function(req, res, next) {
