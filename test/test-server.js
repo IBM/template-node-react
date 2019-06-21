@@ -21,7 +21,7 @@ describe('Testing Server', function() {
 
   before(done => {
     let app = require(process.cwd() + '/server/server');
-    test_server = app.listen(process.env.PORT || 3000, done);
+    test_server = app.listen(process.env.PORT || 8080, done);
   });
 
   it('Public endpoint returns "Hello!"', function(done){
@@ -29,7 +29,7 @@ describe('Testing Server', function() {
 
     var options = {
       host: 'localhost',
-      port: process.env.PORT || 3000,
+      port: process.env.PORT || 8080,
       path: '/'
     };
 
@@ -39,7 +39,7 @@ describe('Testing Server', function() {
       });
 
       response.on('end', function () {
-        expect(responseString).to.include('You are currently running a Node.js app built for the IBM Cloud.');
+        expect(responseString).to.include('<title>IBM Cloud Garage Catalyst</title>');
         done();
       });
     };
@@ -52,7 +52,7 @@ describe('Testing Server', function() {
 
     var options = {
       host: 'localhost',
-      port: process.env.PORT || 3000,
+      port: process.env.PORT || 8080,
       path: '/health'
     };
 
