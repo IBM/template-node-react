@@ -24,7 +24,7 @@ describe('Testing Server', function() {
     test_server = app.listen(process.env.PORT || 8080, done);
   });
 
-  it('Public endpoint returns "Hello!"', function(done){
+  it('Public endpoint returns content', function(done){
     var responseString = '';
 
     var options = {
