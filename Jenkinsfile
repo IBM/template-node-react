@@ -49,6 +49,9 @@ podTemplate(
             stage('Build') {
                 sh '''
                     npm install
+                    cd client
+                    npm install
+                    cd ..
                     npm run build
                 '''
             }
@@ -57,11 +60,7 @@ podTemplate(
                     npm test
                 '''
             }
-            stage('Verify pact') {
-                sh '''
-                    npm run pact:verify
-                '''
-            }
+            
         }
         container(name: 'ibmcloud', shell: '/bin/bash') {
             stage('Build image') {
