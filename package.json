@@ -21,7 +21,7 @@
     "push": "npm run push:only",
     "push:only": "./scripts/publish.sh $npm_package_org $npm_package_name $npm_package_version",
     "pull": "./scripts/pull.sh $npm_package_org $npm_package_name $npm_package_version",
-    "start:image": "docker run -p 8080:80 $npm_package_name:$npm_package_version "
+    "start:image": "docker run -p 3001:3000 $npm_package_name:$npm_package_version "
   },
   "nodemonConfig": {
     "env": {
