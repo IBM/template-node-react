@@ -1,24 +1,19 @@
-FROM node:8-stretch
+FROM registry.redhat.io/ubi8/nodejs-10
 
-# Change working directory
-WORKDIR "/app"
-
-# Update packages and install dependency packages for services
-RUN apt-get update \
- && apt-get dist-upgrade -y \
- && apt-get clean \
- && echo 'Finished installing dependencies'
+RUN mkdir app
 
 # Install npm production packages
-COPY package.json /app/
-RUN cd /app; npm install --production
+COPY package.json ./app
+RUN cd ./app; npm install --production
 
-COPY . /app
+COPY . ./app
 
 ENV NODE_ENV production
 ENV PORT 3000
 
 EXPOSE 3000
+
+WORKDIR ./app
 
 CMD ["npm", "start"]
 
