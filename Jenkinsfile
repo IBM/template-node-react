@@ -27,7 +27,7 @@ podTemplate(
                                 secretEnvVar(key: 'REGISTRY_NAMESPACE', secretName: 'ibmcloud-apikey', secretKey: 'registry_namespace'),
                                 secretEnvVar(key: 'REGION', secretName: 'ibmcloud-apikey', secretKey: 'region'),
                                 secretEnvVar(key: 'CLUSTER_NAME', secretName: 'ibmcloud-apikey', secretKey: 'cluster_name'),
-                                envVar(key: 'CHART_NAME', value: 'template-node-typescript'),
+                                envVar(key: 'CHART_NAME', value: 'template-node-react'),
                                 envVar(key: 'CHART_ROOT', value: 'chart'),
                                 envVar(key: 'TMP_DIR', value: '.tmp'),
                                 envVar(key: 'BUILD_NUMBER', value: "${env.BUILD_NUMBER}"),
