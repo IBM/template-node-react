@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UIShell.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UIShell.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.yml" afterDir="false" />
@@ -32,7 +33,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="-532">
               <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
             </state>
           </provider>
@@ -263,7 +264,7 @@
       <workItem from="1562948568911" duration="596000" />
       <workItem from="1563556403957" duration="901000" />
       <workItem from="1564059485402" duration="3456000" />
-      <workItem from="1564070725525" duration="1247000" />
+      <workItem from="1564070725525" duration="1509000" />
     </task>
     <servers />
   </component>
@@ -276,7 +277,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9031000" />
+    <option name="totallyTimeSpent" value="9293000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -289,9 +290,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="442" y="32" width="1332" height="973" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85464096" visible="true" weight="0.37695923" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.85464096" visible="true" weight="0.37695923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
       <window_info id="npm" order="3" sideWeight="0.14535902" side_tool="true" visible="true" weight="0.37695923" />
@@ -302,7 +302,7 @@
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2926491" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29186046" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39941972" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -310,7 +310,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32871014" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33604652" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33604652" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -525,7 +525,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="-532">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
         </state>
       </provider>
