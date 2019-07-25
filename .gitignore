@@ -27,3 +27,5 @@ yarn-error.log*
 .tmp
 
 /.nyc_output
+
+.idea/workspace.xml
