@@ -1,5 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+node_modules
+node_modules_linux
+coverage
+server/localdev-config.json
+server/localdev-config.json
+vcap-local.js
+credentials.json
+localdev-config.json
+
 # dependencies
 /node_modules
 /client/node_modules

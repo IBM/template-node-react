@@ -21,8 +21,7 @@
     "push": "npm run push:only",
     "push:only": "./scripts/publish.sh $npm_package_org $npm_package_name $npm_package_version",
     "pull": "./scripts/pull.sh $npm_package_org $npm_package_name $npm_package_version",
-    "start:image": "docker run -p 3001:3000 $npm_package_name:$npm_package_version ",
-    "generate-exports": "echo \"export IMAGE_NAME=\\\"$npm_package_name\\\";\nexport IMAGE_VERSION=\\\"$npm_package_version\\\";\nexport IMAGE_BUILD_NUMBER=\\\"$BUILD_NUMBER\\\";\nexport START_TIME=\\\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\\\";\""
+    "start:image": "docker run -p 3001:3000 $npm_package_name:$npm_package_version "
   },
   "nodemonConfig": {
     "env": {
@@ -34,7 +33,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "ibm-cloud-env": "^0",
-    "log4js": "^3.0.5"
+    "log4js": "^3.0.5",
+    "node-sass": "^4.12.0"
   },
   "devDependencies": {
     "chai": "^4.0.0",

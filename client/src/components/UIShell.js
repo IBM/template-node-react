@@ -46,7 +46,7 @@ class UIShell extends Component {
         <Header aria-label="IBM Platform Name">
           <SkipToContent />
           <HeaderName href="#" prefix="IBM">
-            Cloud Garage Catalyst
+            Garage for Cloud Catalyst
           </HeaderName>
         </Header>
         <SideNav aria-label="Side navigation">

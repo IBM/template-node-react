@@ -24,7 +24,7 @@ describe('Testing Server', function() {
     test_server = app.listen(process.env.PORT || 3000, done);
   });
 
-  it('Public endpoint returns content', function(done){
+  it('Public endpoint returns "Hello!"', function(done){
     var responseString = '';
 
     var options = {
@@ -39,7 +39,7 @@ describe('Testing Server', function() {
       });
 
       response.on('end', function () {
-        expect(responseString).to.include('<title>IBM Cloud Garage Catalyst</title>');
+        expect(responseString).to.include('You are currently running a Node.js app built for the IBM Cloud.');
         done();
       });
     };

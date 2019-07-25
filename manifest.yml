@@ -1,7 +1,8 @@
+---
 applications:
   - instances: 1
     timeout: 180
-    name: template-node-react
+    name: TESTAPP
     buildpack: sdk-for-nodejs
     command: npm start
     memory: 256M
