@@ -213,7 +213,7 @@ podTemplate(
 
                     echo "KUBECONFIG=${KUBECONFIG}"
 
-                    INGRESS_NAME="${IMAGE_NAME}-${ENVIRONMENT_NAME}"
+                    INGRESS_NAME="${IMAGE_NAME}"
                     INGRESS_HOST=$(kubectl get ingress/${INGRESS_NAME} --namespace ${ENVIRONMENT_NAME} --output=jsonpath='{ .spec.rules[0].host }')
                     PORT='80'
 
