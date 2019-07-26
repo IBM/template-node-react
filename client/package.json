@@ -1,5 +1,5 @@
 {
-  "name": "catalyst-webui-react",
+  "name": "template-node-react",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3000",
@@ -13,8 +13,8 @@
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
     "bfj": "6.1.1",
-    "carbon-components": "^9.82.1",
-    "carbon-components-react": "^6.99.1",
+    "carbon-components": "^10.3.0",
+    "carbon-components-react": "^6.115.5",
     "carbon-icons": "^7.0.7",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",

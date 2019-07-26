@@ -2,7 +2,7 @@
   "name": "template-node-react",
   "version": "1.0.0",
   "org": "yourorg",
-  "description": "12 UI Patterns with React and Node.js",
+  "description": "12 UI Patterns written with React and Node.js",
   "private": true,
   "engines": {
     "node": "^8.11.1"
