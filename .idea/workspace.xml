@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodejs_dc.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodejs_restclient.log" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,17 +20,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -63,17 +55,17 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/Jenkinsfile" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Jenkinsfile" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="759" />
-    <option name="y" value="49" />
-    <option name="width" value="1289" />
-    <option name="height" value="980" />
+    <option name="x" value="39" />
+    <option name="y" value="34" />
+    <option name="width" value="1462" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -81,7 +73,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -93,6 +84,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -112,7 +104,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../template-watson-banking-chatbot/Jenkinsfile" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../template-node-typescript/Jenkinsfile" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -191,7 +183,8 @@
       <workItem from="1563556403957" duration="901000" />
       <workItem from="1564059485402" duration="3456000" />
       <workItem from="1564070725525" duration="5115000" />
-      <workItem from="1564161106920" duration="747000" />
+      <workItem from="1564161106920" duration="792000" />
+      <workItem from="1564439262011" duration="146000" />
     </task>
     <servers />
   </component>
@@ -204,7 +197,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13646000" />
+    <option name="totallyTimeSpent" value="13837000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -216,13 +209,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="759" y="49" width="1289" height="980" extended-state="0" />
-    <editor active="true" />
+    <frame x="39" y="34" width="1462" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.85391307" visible="true" weight="0.3000811" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8526048" visible="true" weight="0.2631579" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
-      <window_info id="npm" order="3" sideWeight="0.14608696" side_tool="true" visible="true" weight="0.3000811" />
+      <window_info id="npm" order="3" sideWeight="0.14739518" side_tool="true" visible="true" weight="0.2631579" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
       <window_info id="Learn" order="6" />
@@ -238,7 +230,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32871014" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33679354" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.16008538" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -399,12 +391,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run-debug">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run-dev">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/run-debug" />
+    <entry file="file://$PROJECT_DIR$/run-dev" />
     <entry file="file://$PROJECT_DIR$/client/scripts/test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -451,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="191">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
