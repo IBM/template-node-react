@@ -228,7 +228,7 @@
       <workItem from="1564161106920" duration="792000" />
       <workItem from="1564439262011" duration="1608000" />
       <workItem from="1564440911874" duration="144000" />
-      <workItem from="1564441911183" duration="2420000" />
+      <workItem from="1564441911183" duration="2898000" />
     </task>
     <servers />
   </component>
@@ -241,7 +241,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17863000" />
+    <option name="totallyTimeSpent" value="18341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -255,7 +255,7 @@
   <component name="ToolWindowManager">
     <frame x="39" y="34" width="1699" height="1034" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8483816" visible="true" weight="0.19780889" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8483816" visible="true" weight="0.19780889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
       <window_info id="npm" order="3" sideWeight="0.15161839" side_tool="true" visible="true" weight="0.19780889" />
@@ -273,7 +273,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32871014" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32871014" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50030434" side_tool="true" visible="true" weight="0.3626493" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50030434" side_tool="true" visible="true" weight="0.3626493" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4996957" visible="true" weight="0.3626493" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
