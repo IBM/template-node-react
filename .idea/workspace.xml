@@ -4,9 +4,6 @@
     <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/patterns.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/patterns.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +18,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LICENSE">
           <provider selected="true" editor-type-id="text-editor">
@@ -34,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            <state relative-caret-position="487">
+              <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -104,8 +101,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,6 +112,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -229,6 +226,7 @@
       <workItem from="1564439262011" duration="1608000" />
       <workItem from="1564440911874" duration="144000" />
       <workItem from="1564441911183" duration="2898000" />
+      <workItem from="1564501112345" duration="353000" />
     </task>
     <servers />
   </component>
@@ -241,7 +239,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18341000" />
+    <option name="totallyTimeSpent" value="18694000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -255,10 +253,10 @@
   <component name="ToolWindowManager">
     <frame x="39" y="34" width="1699" height="1034" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8483816" visible="true" weight="0.19780889" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8458084" visible="true" weight="0.19780889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
-      <window_info id="npm" order="3" sideWeight="0.15161839" side_tool="true" visible="true" weight="0.19780889" />
+      <window_info id="npm" order="3" sideWeight="0.15419161" side_tool="true" visible="true" weight="0.19780889" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
       <window_info id="Learn" order="6" />
@@ -273,8 +271,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32871014" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32871014" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50030434" side_tool="true" visible="true" weight="0.3626493" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4996957" visible="true" weight="0.3626493" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50091296" side_tool="true" visible="true" weight="0.27470142" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49908704" visible="true" weight="0.27470142" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -568,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state relative-caret-position="487">
+          <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
         </state>
       </provider>
     </entry>
