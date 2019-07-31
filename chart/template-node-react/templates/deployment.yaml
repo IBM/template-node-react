@@ -19,12 +19,15 @@ spec:
         app.kubernetes.io/name: {{ include "template-node-react.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-      imagePullSecrets: 
-        - name: "dev-us-icr-io"
+      {{- if .Values.image.secretName }}
+      imagePullSecrets:
+        - name: {{ .Values.image.secretName }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - name: http
               containerPort: {{ .Values.image.port }}
