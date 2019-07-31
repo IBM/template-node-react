@@ -38,3 +38,4 @@ yarn-error.log*
 /.nyc_output
 
 .idea
+pipeline-build-config.json
