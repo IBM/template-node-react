@@ -202,6 +202,9 @@ podTemplate(
 
                     INGRESS_NAME="${IMAGE_NAME}"
                     INGRESS_HOST=$(kubectl get ingress/${INGRESS_NAME} --namespace ${ENVIRONMENT_NAME} --output=jsonpath='{ .spec.rules[0].host }')
+                    
+                    echo "Host $INGRESS_HOST"
+                    
                     PORT='80'
 
                     # sleep for 10 seconds to allow enough time for the server to start
