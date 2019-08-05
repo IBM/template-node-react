@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test-server.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/test-server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,7 +17,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/test-server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1058">
+              <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -65,6 +75,7 @@
         <option value="$PROJECT_DIR$/chart/template-node-react/templates/ingress.yaml" />
         <option value="$PROJECT_DIR$/chart/template-node-react/values.yaml" />
         <option value="$PROJECT_DIR$/chart/template-node-react/templates/_helpers.tpl" />
+        <option value="$PROJECT_DIR$/test/test-server.js" />
       </list>
     </option>
   </component>
@@ -82,9 +93,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="template-node-react" type="b2602c69:ProjectViewProjectNode" />
+              <item name="template-node-react" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="template-node-react" type="b2602c69:ProjectViewProjectNode" />
+              <item name="template-node-react" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,6 +228,7 @@
       <workItem from="1564593302147" duration="1990000" />
       <workItem from="1564790980363" duration="9000" />
       <workItem from="1564791599610" duration="601000" />
+      <workItem from="1565033527608" duration="30000" />
     </task>
     <servers />
   </component>
@@ -214,7 +241,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22190000" />
+    <option name="totallyTimeSpent" value="22220000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -227,11 +254,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="33" width="1647" height="1004" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83942765" visible="true" weight="0.23947203" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8382353" visible="true" weight="0.23947203" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Storybook" order="2" side_tool="true" />
-      <window_info id="npm" order="3" sideWeight="0.16057234" side_tool="true" visible="true" weight="0.23947203" />
+      <window_info id="npm" order="3" sideWeight="0.16176471" side_tool="true" visible="true" weight="0.23947203" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
       <window_info id="Learn" order="6" />
@@ -246,8 +274,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32871014" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32871014" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5040855" side_tool="true" visible="true" weight="0.29405162" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49591452" visible="true" weight="0.29405162" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504714" side_tool="true" visible="true" weight="0.16049382" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.495286" visible="true" weight="0.16049382" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -362,9 +390,6 @@
     <entry file="file://$PROJECT_DIR$/run-debug" />
     <entry file="file://$PROJECT_DIR$/run-dev" />
     <entry file="file://$PROJECT_DIR$/client/scripts/test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test-server.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -543,6 +568,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
         </state>
       </provider>
     </entry>
