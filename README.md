@@ -32,14 +32,10 @@ After you have created a new git repo from this git template, remember to rename
 Edit `package.json` and change the default name to the name you used to create the template.
 
 Make sure you are logged into the IBM Cloud using the IBM Cloud CLI and have access 
-to you development cluster.
+to you development cluster. If you are using OpenShift make sure you have logged into OpenShift CLI on the command line.
 
 ```$bash
 npm i -g @garage-catalyst/ibm-garage-cloud-cli
-ibmcloud login -a cloud.ibm.com -r <region> -g <resource group>
-ibmcloud ks cluster-config --cluster <cluster-name>
-kubectl get nodes
-
 ```
 
 Use the IBM Garage for Cloud CLI to register the GIT Repo with Jenkins 
