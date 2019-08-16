@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "template-node-react.fullname" . }}
+  name: {{ include "starter-kit-chart.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "template-node-react.name" . }}
-    helm.sh/chart: {{ include "template-node-react.chart" . }}
+    app.kubernetes.io/name: {{ include "starter-kit-chart.name" . }}
+    helm.sh/chart: {{ include "starter-kit-chart.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "template-node-react.name" . }}
+      app.kubernetes.io/name: {{ include "starter-kit-chart.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "template-node-react.name" . }}
+        app.kubernetes.io/name: {{ include "starter-kit-chart.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       {{- if .Values.image.secretName }}

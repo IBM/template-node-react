@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "template-node-react.name" -}}
+{{- define "starter-kit-chart.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "template-node-react.fullname" -}}
+{{- define "starter-kit-chart.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,18 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "template-node-react.chart" -}}
+{{- define "starter-kit-chart.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "template-node-react.host" -}}
-{{- if .Values.host -}}
-{{- printf "%s.%s" .Values.host .Values.ingress_subdomain -}}
+{{- define "starter-kit-chart.host" -}}
+{{- $chartName := default .Chart.Name .Values.nameOverride -}}
+{{- $host := default $chartName .Values.ingress.host -}}
+{{- if .Values.ingress.namespaceInHost -}}
+{{- printf "%s-%s.%s" $host .Release.Namespace .Values.ingress.subdomain -}}
 {{- else -}}
-{{- if .Values.nameOverride -}}
-{{- printf "%s.%s" .Values.nameOverride .Values.ingress_subdomain -}}
-{{- else -}}
-{{- printf "%s.%s" .Chart.Name .Values.ingress_subdomain -}}
-{{- end -}}
+{{- printf "%s.%s" $host .Values.ingress.subdomain -}}
 {{- end -}}
 {{- end -}}
