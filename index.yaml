@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  template-node-react:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2019-08-15T12:32:43.982562258-05:00
+    description: A Helm chart for Kubernetes
+    digest: b056ef9a94643039ec283519efdea2f2e6516537ddbc8c8e9b53ecf1509d5144
+    name: template-node-react
+    urls:
+    - http://artifactory.showcase-dev-rhos-cluster.us-south.containers.appdomain.cloud/artifactory/generic-local/showcase-dev-openshift/template-node-react-0.1.0.tgz
+    version: 0.1.0
+generated: 2019-08-15T12:32:43.977179265-05:00
