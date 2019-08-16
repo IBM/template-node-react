@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/sonarqube-scan.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/.helmignore" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/.helmignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/Chart.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/NOTES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/NOTES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/_helpers.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/_helpers.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/templates/tests/test-connection.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/templates/tests/test-connection.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart/template-node-react/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chart/starter-kit-chart/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template-node-react-0.1.0.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/sonarqube-scan.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/sonarqube-scan.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +143,7 @@
       <workItem from="1565720461948" duration="39000" />
       <workItem from="1565896269357" duration="1197000" />
       <workItem from="1565967970349" duration="43000" />
-      <workItem from="1565968015388" duration="2188000" />
+      <workItem from="1565968015388" duration="2659000" />
     </task>
     <servers />
   </component>
