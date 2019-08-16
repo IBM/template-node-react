@@ -52,7 +52,7 @@ spec:
             name: ibmcloud-apikey
       env:
         - name: CHART_NAME
-          value: template-node-react
+          value: starter-kit-chart
         - name: CHART_ROOT
           value: chart
         - name: TMP_DIR
@@ -89,18 +89,6 @@ spec:
                 sh '''#!/bin/bash
                     set -x
                     npm test
-                '''
-            }
-            stage('Publish pacts') {
-                sh '''#!/bin/bash
-                    set -x
-                    npm run pact:publish
-                '''
-            }
-            stage('Verify pact') {
-                sh '''#!/bin/bash
-                    set -x
-                    npm run pact:verify
                 '''
             }
             stage('Sonar scan') {
