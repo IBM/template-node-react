@@ -1,12 +1,12 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "starter-kit-chart.fullname" . -}}
+{{- $fullName := include "stater-kit-chart.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "starter-kit-chart.name" . }}
-    helm.sh/chart: {{ include "starter-kit-chart.chart" . }}
+    app.kubernetes.io/name: {{ include "stater-kit-chart.name" . }}
+    helm.sh/chart: {{ include "stater-kit-chart.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app: {{ .Release.Name }}
   {{- with .Values.ingress.annotations }}
@@ -16,13 +16,12 @@ metadata:
 spec:
 {{- if .Values.ingress.tlsSecretName }}
   tls:
-  {{- range .Values.ingress.tls }}
     - hosts:
-        - {{ include "starter-kit-chart.host" . }}
+        - {{ include "stater-kit-chart.host" . }}
       secretName: {{ .Values.ingress.tlsSecretName }}
 {{- end }}
   rules:
-    - host: {{ include "starter-kit-chart.host" . }}
+    - host: {{ include "stater-kit-chart.host" . }}
       http:
         paths:
           - path: {{ .path }}
