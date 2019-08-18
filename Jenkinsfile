@@ -50,6 +50,12 @@ spec:
             name: ibmcloud-config
         - secretRef:
             name: ibmcloud-apikey
+        - configMapRef:
+            name: artifactory-config
+            optional: true
+        - secretRef:
+            name: artifactory-artifactory-bootstrap-creds
+            optional: true
       env:
         - name: CHART_NAME
           value: starter-kit-chart
@@ -213,13 +219,30 @@ spec:
                     
                     echo -e "Generated release yaml for: ${CLUSTER_NAME}/${ENVIRONMENT_NAME}."
                     cat ./release.yaml
-                    
+                                        
                     echo -e "Deploying into: ${CLUSTER_NAME}/${ENVIRONMENT_NAME}."
                     kubectl apply -n ${ENVIRONMENT_NAME} -f ./release.yaml
 
                     # ${SCRIPT_ROOT}/deploy-checkstatus.sh ${ENVIRONMENT_NAME} ${IMAGE_NAME} ${IMAGE_REPOSITORY} ${IMAGE_VERSION}
                 '''
             }
+
+            stage('Package Helm Chart') {
+                sh '''#!/bin/bash
+                    set -x
+
+                    . ./env-config
+                    
+                    if [[ -n "${BUILD_NUMBER}" ]]; then
+                      IMAGE_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
+                    fi
+
+                    # Persist the Chart in Artifactory for use by ArgoCD
+                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -T ./release.yaml ${ARTIFACTORY_URL}/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
+
+                '''
+            }
+
             stage('Health Check') {
                 sh '''#!/bin/bash
                     . ./env-config
