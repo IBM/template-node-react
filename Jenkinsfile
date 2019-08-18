@@ -236,9 +236,11 @@ spec:
                     if [[ -n "${BUILD_NUMBER}" ]]; then
                       IMAGE_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
                     fi
+                    
+                    curl --version
 
                     # Persist the Chart in Artifactory for use by ArgoCD
-                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -T release.yaml "${ARTIFACTORY_URL}/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
+                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T release.yaml "${ARTIFACTORY_URL}/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
 
                 '''
             }
