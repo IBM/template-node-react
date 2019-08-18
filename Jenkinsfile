@@ -238,7 +238,7 @@ spec:
                     fi
 
                     # Persist the Chart in Artifactory for use by ArgoCD
-                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -T ./release.yaml "${ARTIFACTORY_URL}/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
+                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -T release.yaml "${ARTIFACTORY_URL}/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
 
                 '''
             }
