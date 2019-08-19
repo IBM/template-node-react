@@ -234,7 +234,7 @@ spec:
                     . ./env-config
                     
                     if [[ -n "${BUILD_NUMBER}" ]]; then
-                      IMAGE_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
+                      IMAGE_BUILD_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
                     fi
                     
                     curl --version
@@ -244,11 +244,10 @@ spec:
                     helm package --version {IMAGE_VERSION} chart/starter-kit-chart
                     
                     # Persist the Chart in Artifactory for use by ArgoCD
-                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T release.yaml "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.yaml"
+                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T release.yaml "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.yaml"
                     
                     # Persit the Helm Chart in Artifactory for us by ArgoCD
-                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_VERSION}.tgz"
-
+                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
                 '''
             }
