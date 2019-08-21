@@ -237,18 +237,27 @@ spec:
                       IMAGE_BUILD_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
                     fi
                     
-                    curl --version
+                    sudo apt-get install jq.
                     
-                    echo ${bootstrap.creds}
+                    export URL=$(curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -X GET "${ARTIFACTORY_URL}/artifactory/api/repositories?type=LOCAL" | jq '.[0].url')
                     
+                    echo ${URL}
+                    
+                    if [ ${URL} != "" ]; then
+                        echo "Successfully read Repo ${URL}"
+                    else
+                        echo "No Repository Created"
+                        exit 1;
+                    fi;
+                    
+                    # Package Helm Chart
                     helm package --version {IMAGE_VERSION} chart/starter-kit-chart
                     
                     # Persist the Chart in Artifactory for use by ArgoCD
-                    
-                    curl -u${ARTIFACTORY_USER}:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T release.yaml "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.yaml"
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T release.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.yaml"
                     
                     # Persit the Helm Chart in Artifactory for us by ArgoCD
-                    curl -uadmin:APAkQpy1ZTFxQFsQgQiigCV5XP2 -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${ARTIFACTORY_URL}/artifactory/generic-local/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
                 '''
             }
