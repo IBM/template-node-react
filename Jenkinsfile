@@ -239,10 +239,11 @@ spec:
                     
                     sudo apt-get install jq.
                     
-                    export URL=$(curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -X GET "${ARTIFACTORY_URL}/artifactory/api/repositories?type=LOCAL" | jq '.[0].url')
-                    
+                    # Check if a Generic Local Repo has been created and retrieve the URL for it
+                    export URL=$(curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -X GET "${ARTIFACTORY_URL}/artifactory/api/repositories?type=LOCAL" | jq '.[0].url' | | tr -d \\") 
                     echo ${URL}
                     
+                    # Check if the URL is valid and we can continue
                     if [ ${URL} != "" ]; then
                         echo "Successfully read Repo ${URL}"
                     else
@@ -256,7 +257,7 @@ spec:
                     # Persist the Chart in Artifactory for use by ArgoCD
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T release.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.yaml"
                     
-                    # Persit the Helm Chart in Artifactory for us by ArgoCD
+                    # Persist the Helm Chart in Artifactory for us by ArgoCD
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
                 '''
