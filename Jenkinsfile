@@ -256,23 +256,23 @@ spec:
                         exit 1;
                     fi;
                     
+                    # Package Helm Chart
+                    helm package --version ${IMAGE_BUILD_VERSION} chart/${CHART_NAME}
+                    
                     # Get the index and re index it with current Helm Chart
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -O "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
                   
                     if [[ $(cat index.yaml | jq '.errors[0].status') != "404" ]]; then                    
                         # Merge the chart index with the current index.yaml held in Artifactory
                         echo "Merging Chart into index.yaml for Chart Repository"
-                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml
+                        helm repo index . --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml
                     else                    
                         # Dont Merge this is first time one is being created
                         echo "Creating a new index.yaml for Chart Repository"
                         rm index.yaml
-                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE}                    
+                        helm repo index . --url ${URL}/${REGISTRY_NAMESPACE}                    
                     fi;
-         
-                    # Package Helm Chart
-                    helm package --version ${IMAGE_VERSION} chart/${CHART_NAME}
-                    
+                             
                     # Persist the Helm Chart in Artifactory for us by ArgoCD
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T ${CHART_NAME}-${IMAGE_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${CHART_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
