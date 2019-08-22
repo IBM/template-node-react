@@ -270,7 +270,7 @@ spec:
                     echo "- release.yaml" >> kustomize.yaml
                     cat kustomize.yaml
                     
-                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T kustomize.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/kustomize.yaml.yaml"
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T kustomize.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/kustomize.yaml"
                     
                 '''
             }
