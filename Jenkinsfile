@@ -236,6 +236,11 @@ spec:
                     if [[ -n "${BUILD_NUMBER}" ]]; then
                       IMAGE_BUILD_VERSION="${IMAGE_VERSION}-${BUILD_NUMBER}"
                     fi
+
+                    if [[ -z "${ARTIFACTORY_ENCRPT}" ]]; then
+                        echo "Encrption key not available for Jenkins pipeline, please add it to the artifactory-access
+                        exit 1
+                    fi
                     
                     sudo apt-get install jq.
                     
