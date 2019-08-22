@@ -238,7 +238,7 @@ spec:
                     fi
 
                     if [[ -z "${ARTIFACTORY_ENCRPT}" ]]; then
-                        echo "Encrption key not available for Jenkins pipeline, please add it to the artifactory-access
+                        echo "Encrption key not available for Jenkins pipeline, please add it to the artifactory-access"
                         exit 1
                     fi
                     
