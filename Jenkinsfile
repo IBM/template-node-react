@@ -265,8 +265,9 @@ spec:
                         helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml
                     else                    
                         # Dont Merge this is first time one is being created
-                        echo "Creating index.yaml for Chart Repository"
-                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml                    
+                        echo "Creating a new index.yaml for Chart Repository"
+                        rm index.yaml
+                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE}                    
                     fi;
          
                     # Package Helm Chart
