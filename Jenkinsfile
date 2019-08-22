@@ -257,16 +257,16 @@ spec:
                     fi;
                     
                     # Package Helm Chart
-                    helm package --version {IMAGE_VERSION} chart/starter-kit-chart
+                    helm package --version ${IMAGE_VERSION} chart/starter-kit-chart
                     
                     # Persist the Chart in Artifactory for use by ArgoCD
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T release.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/release.yaml"
 
                     # Create the Kustomize Base Yaml the support the installation of the Release
-                    cat <<EOT >> kustomize.yaml
+                    cat <<EOF > kustomize.yaml
 resources:
 - release.yaml
-                    EOT                    
+                    EOF                    
                     cat kustomize.yaml
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T kustomize.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/kustomize.yaml.yaml"
                     
