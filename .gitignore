@@ -8,6 +8,7 @@ server/localdev-config.json
 vcap-local.js
 credentials.json
 localdev-config.json
+index.yaml
 
 # dependencies
 /node_modules
