@@ -249,7 +249,7 @@ spec:
                     echo ${URL}
                     
                     # Check if the URL is valid and we can continue
-                    if [ "${URL}" != "" ]; then
+                    if [ -n "${URL}" ]; then
                         echo "Successfully read Repo ${URL}"
                     else
                         echo "No Repository Created"
@@ -263,7 +263,10 @@ spec:
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T release.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/release.yaml"
 
                     # Create the Kustomize Base Yaml the support the installation of the Release
-                    echo "resources:\n- release.yaml" > kustomize.yaml
+                    cat <<EOT >> kustomize.yaml
+resources:
+- release.yaml
+                    EOT                    
                     cat kustomize.yaml
                     curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T kustomize.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/kustomize.yaml.yaml"
                     
