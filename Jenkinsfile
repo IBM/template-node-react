@@ -257,7 +257,7 @@ spec:
                     fi;
                     
                     # Get the index and re index it with current Helm Chart
-                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -O "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -O "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
                   
                     if [ $(cat index.yaml | jq '.errors[0].status') != "404" ]; then                    
                         # Merge the chart index with the current index.yaml held in Artifactory
