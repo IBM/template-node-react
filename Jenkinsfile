@@ -58,7 +58,7 @@ spec:
             optional: true
       env:
         - name: CHART_NAME
-          value: starter-kit-chart
+          value: template-node-react
         - name: CHART_ROOT
           value: chart
         - name: TMP_DIR
@@ -256,22 +256,28 @@ spec:
                         exit 1;
                     fi;
                     
+                    # Get the index and re index it with current Helm Chart
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -O "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
+                  
+                    if [ $(cat index.yaml | jq '.errors[0].status') != 404 ) ]; then                    
+                        # Merge the chart index with the current index.yaml held in Artifactory
+                        echo "Merging Chart into index.yaml for Chart Repository"
+                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml
+                    else                    
+                        # Dont Merge this is first time one is being created
+                        echo "Creating index.yaml for Chart Repository"
+                        helm repo index .   --url ${URL}/${REGISTRY_NAMESPACE} --merge index.yaml                    
+                    fi;
+         
                     # Package Helm Chart
-                    helm package --version ${IMAGE_VERSION} chart/starter-kit-chart
+                    helm package --version ${IMAGE_VERSION} chart/${CHART_NAME}
                     
                     # Persist the Helm Chart in Artifactory for us by ArgoCD
-                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T starter-kit-chart-${IMAGE_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
-                    
-                    # Persist the Chart in Artifactory for use by ArgoCD
-                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T release.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/release.yaml"
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T ${CHART_NAME}-${IMAGE_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${CHART_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
-                    # Create the Kustomize Base Yaml the support the installation of the Release
-                    echo "resources:" > kustomize.yaml
-                    echo "- release.yaml" >> kustomize.yaml
-                    cat kustomize.yaml
-                    
-                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T kustomize.yaml "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}/kustomize.yaml"
-                    
+                    # Persist the Helm Chart in Artifactory for us by ArgoCD
+                    curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T index.yaml "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
+                                                       
                 '''
             }
 
