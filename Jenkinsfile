@@ -245,11 +245,11 @@ spec:
                     sudo apt-get install jq.
                     
                     # Check if a Generic Local Repo has been created and retrieve the URL for it
-                    export URL=$(curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -X GET "${ARTIFACTORY_URL}/artifactory/api/repositories?type=LOCAL" | jq '.[0].url' | | tr -d \\") 
+                    export URL=$(curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -X GET "${ARTIFACTORY_URL}/artifactory/api/repositories?type=LOCAL" | jq '.[0].url' | tr -d \\") 
                     echo ${URL}
                     
                     # Check if the URL is valid and we can continue
-                    if [ ${URL} != "" ]; then
+                    if [ "${URL}" != "" ]; then
                         echo "Successfully read Repo ${URL}"
                     else
                         echo "No Repository Created"
