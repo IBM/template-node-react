@@ -41,3 +41,5 @@ yarn-error.log*
 .idea/workspace.xml
 pipeline-build-config.json
 /.idea/
+
+.idea/workspace.xml

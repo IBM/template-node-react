@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/sonarqube-scan.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/sonarqube-scan.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8ef5f35a-1f5e-4ced-8d67-f72332a896df" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,7 @@
       <workItem from="1566491581444" duration="9547000" />
       <workItem from="1566571814326" duration="1331000" />
       <workItem from="1566959784695" duration="155000" />
-      <workItem from="1566962073120" duration="7000" />
+      <workItem from="1566962073120" duration="91000" />
     </task>
     <servers />
   </component>
