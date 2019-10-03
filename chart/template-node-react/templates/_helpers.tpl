@@ -15,7 +15,7 @@ If release name contains chart name it will be used as a full name.
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- $name := include "starter-kit-chart.name" . -}}
 {{- if contains $name .Release.Name -}}
 {{- .Release.Name | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -32,18 +32,20 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "stater-kit-chart.host" -}}
-{{- $chartName := default .Chart.Name .Values.nameOverride -}}
+{{- $chartName := include "stater-kit-chart.name" . -}}
 {{- $host := default $chartName .Values.ingress.host -}}
+{{- $subdomain := default .Values.ingress.subdomain .Values.global.ingressSubdomain -}}
 {{- if .Values.ingress.namespaceInHost -}}
-{{- printf "%s-%s.%s" $host .Release.Namespace .Values.ingress.subdomain -}}
+{{- printf "%s-%s.%s" $host .Release.Namespace $subdomain -}}
 {{- else -}}
-{{- printf "%s.%s" $host .Values.ingress.subdomain -}}
+{{- printf "%s.%s" $host $subdomain -}}
 {{- end -}}
 {{- end -}}
 
 {{- define "stater-kit-chart.url" -}}
+{{- $secretName := include "stater-kit-chart.tlsSecretName" . -}}
 {{- $host := include "stater-kit-chart.host" . -}}
-{{- if .Values.ingress.tlsSecretName -}}
+{{- if $secretName -}}
 {{- printf "https://%s" $host -}}
 {{- else -}}
 {{- printf "http://%s" $host -}}
@@ -51,9 +53,19 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "stater-kit-chart.protocols" -}}
-{{- if .Values.ingress.tlsSecretName -}}
+{{- $secretName := include "stater-kit-chart.tlsSecretName" . -}}
+{{- if $secretName -}}
 {{- printf "%s,%s" "http" "https" -}}
 {{- else -}}
 {{- printf "%s" "http" -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "stater-kit-chart.tlsSecretName" -}}
+{{- $secretName := default .Values.ingress.tlsSecretName .Values.global.tlsSecretName -}}
+{{- if $secretName }}
+{{- printf "%s" $secretName -}}
+{{- else -}}
+{{- printf "" -}}
 {{- end -}}
 {{- end -}}
