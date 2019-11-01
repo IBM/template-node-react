@@ -12,6 +12,7 @@
     "start:dev": "cd client && npm start",
     "debug": "chmod +x run-debug && ./run-debug",
     "test": "cd client && npm test",
+    "tdd": "cd client && npm run tdd",
     "dev": "nodemon server/server.js",
     "build": "cd client && npm run build",
     "build:image": "./scripts/build.sh $npm_package_name $npm_package_version",
