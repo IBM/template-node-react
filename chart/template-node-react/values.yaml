@@ -5,6 +5,8 @@ global: {}
 
 replicaCount: 1
 
+apiHost: ""
+
 image:
   repository: replace
   tag: replace
