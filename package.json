@@ -8,11 +8,10 @@
     "node": "^8.11.1"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
     "start": "node server/server.js",
     "start:dev": "cd client && npm start",
     "debug": "chmod +x run-debug && ./run-debug",
-    "test": "nyc mocha --exit",
+    "test": "cd client && npm test",
     "dev": "nodemon server/server.js",
     "build": "cd client && npm run build",
     "build:image": "./scripts/build.sh $npm_package_name $npm_package_version",
@@ -30,23 +29,18 @@
   "author": "IBM Garage for Cloud",
   "license": "ISC",
   "dependencies": {
+    "client": "file:./client",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-http-proxy": "^1.6.0",
     "ibm-cloud-env": "^0",
     "log4js": "^3.0.5",
-    "node-sass": "^4.12.0",
-    "tslib": "^1.10.0"
+    "node-sass": "^4.12.0"
   },
   "devDependencies": {
     "@types/node": "^11.13.19",
-    "chai": "^4.0.0",
-    "mocha": "^5.2.0",
     "nodemon": "^1.12.1",
-    "nyc": "^13.1.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.4",
     "supertest": "^4.0.2",
     "sonarqube-scanner": "^2.5.0"
   }
