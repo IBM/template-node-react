@@ -24,8 +24,8 @@
     "push:only": "./scripts/publish.sh $npm_package_org $npm_package_name $npm_package_version",
     "pull": "./scripts/pull.sh $npm_package_org $npm_package_name $npm_package_version",
     "start:image": "docker run -p 3001:3000 $npm_package_name:$npm_package_version ",
-    "test:coverage": "nyc --reporter=cobertura --reporter=lcov npm run test",
-    "sonarqube:scan": "npm run test:coverage && ts-node test/sonarqube-scan"
+    "test:coverage": "cd client && npm run test:coverage",
+    "sonarqube:scan": "npm run test:coverage && node test/sonarqube-scan"
   },
   "author": "IBM Garage for Cloud",
   "license": "ISC",
