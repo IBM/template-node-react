@@ -1,5 +1,4 @@
-import * as sonarqubeScanner from 'sonarqube-scanner';
-import * as config from '../package.json';
+const sonarqubeScanner = require('sonarqube-scanner');
 
 const serverUrl = process.env.SONARQUBE_URL;
 
