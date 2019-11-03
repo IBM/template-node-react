@@ -13,8 +13,22 @@ import Header from "./Header";
 import "./patterns.scss";
 
 class TableList extends Component {
+  columns = ['Name', 'Address', 'City', 'State', 'ZipCode', 'Country'];
+  formatters = {
+    'ZipCode': function(val) {
+      return val + '-0000';
+    }
+  };
+
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],
+      selectedRow: 0,
+    };
+  }
+
+  async componentDidMount() {
     const data = [
       {
         Name: "Lin",
@@ -41,10 +55,10 @@ class TableList extends Component {
         Country: "United States"
       }
     ];
-    this.state = {
+
+    this.setState({
       data,
-      selectedRow: 0
-    };
+    })
   }
 
   onRowClick = id => {
@@ -70,10 +84,12 @@ class TableList extends Component {
             />
           </StructuredListCell>
         </div>
-        {Object.keys(row).map(col => {
+        {this.columns.map(col => {
+          const format = this.formatters[col] || function(val) { return val; };
+
           return (
             <StructuredListCell key={col} className="simple-list-row">
-              {row[col]}
+              {format(row[col])}
             </StructuredListCell>
           );
         })}
@@ -83,7 +99,7 @@ class TableList extends Component {
 
   render() {
     const data = this.state.data;
-    const columns = Object.keys(data[0]);
+
     return (
       <div className="bx--grid pattern-container">
         <Header
@@ -96,7 +112,7 @@ class TableList extends Component {
               <StructuredListHead>
                 <StructuredListRow head>
                   <StructuredListCell head />
-                  {columns.map(key => {
+                  {this.columns.map(key => {
                     return (
                       <StructuredListCell head key={key}>
                         {key.charAt(0).toUpperCase() +
