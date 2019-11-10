@@ -23,6 +23,33 @@ class TableList extends Component {
     }
   };
 
+  data = [
+    {
+      Name: "Lin",
+      Address: "123 Main Street",
+      City: "Austin",
+      State: "TX",
+      ZipCode: "12345",
+      Country: "United States"
+    },
+    {
+      Name: "Mak",
+      Address: "45 2nd Street",
+      City: "Austin",
+      State: "TX",
+      ZipCode: "78766",
+      Country: "United States"
+    },
+    {
+      Name: "Joe",
+      Address: "40 Down Street",
+      City: "San Francisco",
+      State: "CA",
+      ZipCode: "90706",
+      Country: "United States"
+    }
+  ];
+
   constructor(props) {
     super(props);
     this.state = {
@@ -32,35 +59,9 @@ class TableList extends Component {
   }
 
   async componentDidMount() {
-    const data = [
-      {
-        Name: "Lin",
-        Address: "123 Main Street",
-        City: "Austin",
-        State: "TX",
-        ZipCode: "12345",
-        Country: "United States"
-      },
-      {
-        Name: "Mak",
-        Address: "45 2nd Street",
-        City: "Austin",
-        State: "TX",
-        ZipCode: "78766",
-        Country: "United States"
-      },
-      {
-        Name: "Joe",
-        Address: "40 Down Street",
-        City: "San Francisco",
-        State: "CA",
-        ZipCode: "90706",
-        Country: "United States"
-      }
-    ];
 
     this.setState({
-      data,
+      data: this.data,
     })
   }
 
