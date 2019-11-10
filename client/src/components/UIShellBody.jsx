@@ -30,9 +30,11 @@ class UIShellBody extends Component {
     "Search List": SearchList,
     "Search Form": SearchForm
   };
+  defaultComponent = "Display Form";
+
   render() {
     const PatternName = this.components[
-      this.props.patternName || "Display Form"
+      this.props.patternName || this.defaultComponent
     ];
     return (
       <div className="pattern-container">
