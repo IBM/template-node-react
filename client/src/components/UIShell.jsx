@@ -23,15 +23,37 @@ const Fade20 = () => (
 );
 
 class UIShell extends Component {
+  header = "Garage for Cloud Catalyst";
+  menuTitle = "12 Design Pattern";
+  menuItems = [
+    "Display Form",
+    "Validating Form",
+    "Update Form",
+    "Validating Form Wizard 1",
+    "Validating Form Wizard 2",
+    "Simple List",
+    "Table List",
+    "List to List",
+    "Linked List",
+    "Master Detail",
+    "Create, Read, Update, Delete",
+    "Search List",
+    "Search Form"
+  ];
+
   constructor(props) {
     super(props);
     this.state = {
-      patternName: "Display Form"
+      patternName: this.menuItems[0]
     };
   }
 
   onPatternSelection = label => {
     this.setState({ patternName: label });
+  };
+
+  renderSideNavItems = () => {
+    return this.menuItems.map(label => this.renderSideNavItem(label));
   };
 
   renderSideNavItem = label => {
@@ -46,7 +68,7 @@ class UIShell extends Component {
         <Header aria-label="IBM Platform Name">
           <SkipToContent />
           <HeaderName href="#" prefix="IBM">
-            Garage for Cloud Catalyst
+            {this.header}
           </HeaderName>
         </Header>
         <SideNav aria-label="Side navigation">
@@ -54,21 +76,9 @@ class UIShell extends Component {
             <SideNavMenu
               defaultExpanded
               icon={<Fade20 />}
-              title="12 Design Patterns"
+              title={this.menuTitle}
             >
-              {this.renderSideNavItem("Display Form")}
-              {this.renderSideNavItem("Validating Form")}
-              {this.renderSideNavItem("Update Form")}
-              {this.renderSideNavItem("Validating Form Wizard 1")}
-              {this.renderSideNavItem("Validating Form Wizard 2")}
-              {this.renderSideNavItem("Simple List")}
-              {this.renderSideNavItem("Table List")}
-              {this.renderSideNavItem("List to List")}
-              {this.renderSideNavItem("Linked List")}
-              {this.renderSideNavItem("Master Detail")}
-              {this.renderSideNavItem("Create, Read, Update, Delete")}
-              {this.renderSideNavItem("Search List")}
-              {this.renderSideNavItem("Search Form")}
+              {this.renderSideNavItems()}
             </SideNavMenu>
           </SideNavItems>
         </SideNav>
