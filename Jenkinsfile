@@ -250,7 +250,7 @@ spec:
                 fi;
 
                 # Package Helm Chart
-                helm package --version ${IMAGE_BUILD_VERSION} ${CHART_ROOT}/${CHART_NAME}
+                helm package --version ${IMAGE_BUILD_VERSION} ${CHART_ROOT}/${IMAGE_NAME}
 
                 # Get the index and re index it with current Helm Chart
                 curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -O "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
@@ -267,7 +267,7 @@ spec:
                 fi;
 
                 # Persist the Helm Chart in Artifactory for us by ArgoCD
-                curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T ${CHART_NAME}-${IMAGE_BUILD_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${CHART_NAME}-${IMAGE_BUILD_VERSION}.tgz"
+                curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T ${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz "${URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}-${IMAGE_BUILD_VERSION}.tgz"
 
                 # Persist the Helm Chart in Artifactory for us by ArgoCD
                 curl -u${ARTIFACTORY_USER}:${ARTIFACTORY_ENCRPT} -i -vvv -T index.yaml "${URL}/${REGISTRY_NAMESPACE}/index.yaml"
@@ -304,7 +304,7 @@ spec:
                     
                     # Write the updated requirements.yaml
                     echo "dependencies:" > ./requirements.yaml.tmp
-                    echo "  - name: ${CHART_NAME}" >> ./requirements.yaml.tmp
+                    echo "  - name: ${IMAGE_NAME}" >> ./requirements.yaml.tmp
                     echo "    version: ${IMAGE_BUILD_VERSION}" >> ./requirements.yaml.tmp
                     echo "    repository: ${HELM_REPO}" >> ./requirements.yaml.tmp
                     
