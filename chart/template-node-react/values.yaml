@@ -26,8 +26,9 @@ ingress:
     enabled: false
     # web or app - https://cloud.ibm.com/docs/services/appid?topic=appid-kube-auth
     requestType: web
-    binding: ""
-    namespace: ""
+    binding:
+      name: ""
+      namespace: ""
 
 #  host: hello
   namespaceInHost: true
