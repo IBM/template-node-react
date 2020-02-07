@@ -1,5 +1,4 @@
-import * as sonarqubeScanner from 'sonarqube-scanner';
-import * as config from '../package.json';
+const sonarqubeScanner = require('sonarqube-scanner');
 
 const serverUrl = process.env.SONARQUBE_URL;
 
@@ -16,7 +15,7 @@ async function sonarScanner() {
       'sonar.password': process.env.SONARQUBE_PASSWORD,
       'sonar.sources': 'client/src,server',
       'sonar.language': 'javascript',
-      'sonar.javascript.lcov.reportPaths' : 'coverage/lcov.info',
+      'sonar.javascript.lcov.reportPaths' : 'client/coverage/lcov.info',
       'sonar.sourceEncoding': 'UTF-8'
     }
   }, result => {

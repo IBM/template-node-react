@@ -5,6 +5,8 @@ global: {}
 
 replicaCount: 1
 
+apiHost: ""
+
 image:
   repository: replace
   tag: replace
@@ -24,6 +26,9 @@ ingress:
     enabled: false
     # web or app - https://cloud.ibm.com/docs/services/appid?topic=appid-kube-auth
     requestType: web
+    binding:
+      name: ""
+      namespace: ""
 
 #  host: hello
   namespaceInHost: true

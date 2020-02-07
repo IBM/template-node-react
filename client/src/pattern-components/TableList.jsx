@@ -13,38 +13,56 @@ import Header from "./Header";
 import "./patterns.scss";
 
 class TableList extends Component {
+  title = 'Table List';
+  subtitle = 'This pattern will display and array of model objects in a multi column grid/table.';
+
+  columns = ['Name', 'Address', 'City', 'State', 'ZipCode', 'Country'];
+  formatters = {
+    'ZipCode': function(val) {
+      return val + '-0000';
+    }
+  };
+
+  data = [
+    {
+      Name: "Lin",
+      Address: "123 Main Street",
+      City: "Austin",
+      State: "TX",
+      ZipCode: "12345",
+      Country: "United States"
+    },
+    {
+      Name: "Mak",
+      Address: "45 2nd Street",
+      City: "Austin",
+      State: "TX",
+      ZipCode: "78766",
+      Country: "United States"
+    },
+    {
+      Name: "Joe",
+      Address: "40 Down Street",
+      City: "San Francisco",
+      State: "CA",
+      ZipCode: "90706",
+      Country: "United States"
+    }
+  ];
+
   constructor(props) {
     super(props);
-    const data = [
-      {
-        Name: "Lin",
-        Address: "123 Main Street",
-        City: "Austin",
-        State: "TX",
-        ZipCode: "12345",
-        Country: "United States"
-      },
-      {
-        Name: "Mak",
-        Address: "45 2nd Street",
-        City: "Austin",
-        State: "TX",
-        ZipCode: "78766",
-        Country: "United States"
-      },
-      {
-        Name: "Joe",
-        Address: "40 Down Street",
-        City: "San Francisco",
-        State: "CA",
-        ZipCode: "90706",
-        Country: "United States"
-      }
-    ];
     this.state = {
-      data,
-      selectedRow: 0
+      data: [],
+      selectedRow: 0,
     };
+  }
+
+  async componentDidMount() {
+
+    this.setState({
+      data: this.data,
+    })
   }
 
   onRowClick = id => {
@@ -70,10 +88,12 @@ class TableList extends Component {
             />
           </StructuredListCell>
         </div>
-        {Object.keys(row).map(col => {
+        {this.columns.map(col => {
+          const format = this.formatters[col] || function(val) { return val; };
+
           return (
             <StructuredListCell key={col} className="simple-list-row">
-              {row[col]}
+              {format(row[col])}
             </StructuredListCell>
           );
         })}
@@ -83,12 +103,12 @@ class TableList extends Component {
 
   render() {
     const data = this.state.data;
-    const columns = Object.keys(data[0]);
+
     return (
       <div className="bx--grid pattern-container">
         <Header
-          title="Table List"
-          subtitle="This pattern will display and array of model objects in a multi column grid/table."
+          title={this.title}
+          subtitle={this.subtitle}
         />
         <div className="bx--row">
           <div className="bx--col-xs-12">
@@ -96,7 +116,7 @@ class TableList extends Component {
               <StructuredListHead>
                 <StructuredListRow head>
                   <StructuredListCell head />
-                  {columns.map(key => {
+                  {this.columns.map(key => {
                     return (
                       <StructuredListCell head key={key}>
                         {key.charAt(0).toUpperCase() +
