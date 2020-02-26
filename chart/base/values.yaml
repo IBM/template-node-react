@@ -4,8 +4,7 @@
 global: {}
 
 replicaCount: 1
-
-apiHost: ""
+logLevel: "debug"
 
 image:
   repository: replace
@@ -20,15 +19,15 @@ service:
   type: ClusterIP
   port: 80
 
+route:
+  enabled: false
+
 ingress:
   enabled: true
   appid:
     enabled: false
     # web or app - https://cloud.ibm.com/docs/services/appid?topic=appid-kube-auth
     requestType: web
-    binding:
-      name: ""
-      namespace: ""
 
 #  host: hello
   namespaceInHost: true
