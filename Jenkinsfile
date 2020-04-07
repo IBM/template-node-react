@@ -75,11 +75,13 @@ spec:
             secretKeyRef:
               name: git-credentials
               key: username
+              optional: true
         - name: GIT_AUTH_PWD
           valueFrom:
             secretKeyRef:
               name: git-credentials
               key: password
+              optional: true
     - name: buildah
       image: quay.io/buildah/stable:v1.9.2
       tty: true
