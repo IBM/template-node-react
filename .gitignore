@@ -41,3 +41,5 @@ yarn-error.log*
 pipeline-build-config.json
 .idea/
 *.iml
+.scannerwork/
+env-config
