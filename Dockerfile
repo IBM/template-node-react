@@ -1,17 +1,29 @@
+FROM registry.access.redhat.com/ubi8/nodejs-10 AS builder
+
+WORKDIR /opt/app-root/src
+
+RUN mkdir client
+COPY --chown=default:root client client
+COPY client/package*.json client/
+COPY package*.json ./
+RUN npm ci
+RUN cd client && npm ci
+
+RUN npm run build
+
 FROM registry.access.redhat.com/ubi8/nodejs-10
 
-RUN mkdir app
+COPY --from=builder /opt/app-root/src/client/build client/build
+COPY public public
+COPY server server
+COPY client/package*.json client/
+COPY package.json .
+RUN npm install --production
 
-# Install npm production packages
-COPY --chown=default:root . ./app
-
-ENV NODE_ENV production
-ENV PORT 3000
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE 3000/tcp
 
-WORKDIR ./app
-
-RUN npm install --production
-
 CMD ["npm", "start"]
+
