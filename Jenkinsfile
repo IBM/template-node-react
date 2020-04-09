@@ -210,13 +210,15 @@ spec:
                     set -x
                     set -e
 
-                    git fetch origin ${BRANCH} --tags
+                    git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
+
+                    git fetch --unshallow
+                    git fetch --tags
                     git checkout ${BRANCH}
                     git branch --set-upstream-to=origin/${BRANCH} ${BRANCH}
 
                     git config --global user.name "Jenkins Pipeline"
                     git config --global user.email "jenkins@ibmcloud.com"
-                    git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
 
                     mkdir -p ~/.npm
                     npm config set prefix ~/.npm
