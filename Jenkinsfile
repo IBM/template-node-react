@@ -210,6 +210,11 @@ spec:
                     set -x
                     set -e
 
+                    if [[ -z "$GIT_AUTH_USER" ]] || [[ -z "$GIT_AUTH_PWD" ]]; then
+                      echo "Git credentials not found. Store your git credentials in a secret named 'git-credentials'."
+                      exit 1
+                    fi
+
                     git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
 
                     git fetch origin ${BRANCH}
@@ -219,6 +224,15 @@ spec:
 
                     git config --global user.name "Jenkins Pipeline"
                     git config --global user.email "jenkins@ibmcloud.com"
+
+                    if [[ "${BRANCH}" == "master" ]] && [[ $(git describe --tag `git rev-parse HEAD`) =~ (^[0-9]+.[0-9]+.[0-9]+$) ]] || \
+                       [[ $(git describe --tag `git rev-parse HEAD`) =~ (^[0-9]+.[0-9]+.[0-9]+-${BRANCH}[.][0-9]+$) ]]
+                    then
+                        echo "Latest commit is already tagged"
+                        echo "IMAGE_NAME=$(basename -s .git `git config --get remote.origin.url` | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g')" > ./env-config
+                        echo "IMAGE_VERSION=$(git describe --abbrev=0 --tags)" >> ./env-config
+                        exit 0
+                    fi
 
                     mkdir -p ~/.npm
                     npm config set prefix ~/.npm
@@ -365,7 +379,7 @@ spec:
 
                 if [[ -z "${ARTIFACTORY_ENCRYPT}" ]]; then
                     echo "Encrption key not available for Jenkins pipeline, please add it to the artifactory-access"
-                    exit 1
+                    exit 0
                 fi
 
                 # Check if a Generic Local Repo has been created and retrieve the URL for it
