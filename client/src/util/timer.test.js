@@ -19,7 +19,7 @@ describe('timer', () => {
       await timer(expectedTime);
 
       const endTime = new Date().getTime();
-      expect(endTime - startTime).toBeGreaterThanOrEqual(expectedTime);
+      expect(endTime - startTime).toBeGreaterThanOrEqual(expectedTime-2);
     });
   });
 
