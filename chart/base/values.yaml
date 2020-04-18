@@ -44,4 +44,4 @@ partOf: ""
 
 connectsTo: ""
 
-runtime: nodejs
+runtime: js
