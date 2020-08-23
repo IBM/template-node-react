@@ -35,17 +35,17 @@ Make sure you are logged into the IBM Cloud using the IBM Cloud CLI and have acc
 to you development cluster. If you are using OpenShift make sure you have logged into OpenShift CLI on the command line.
 
 ```$bash
-npm i -g @garage-catalyst/ibm-garage-cloud-cli
+npm install -g @ibmgaragecloud/cloud-native-toolkit-cli
 ```
 
-Use the IBM Garage for Cloud CLI to register the GIT Repo with Jenkins 
+Use the IBM Garage for Cloud CLI to register the GIT Repo with Tekton or Jenkins 
 
 ```$bash
-igc register
+oc sync <project> --dev
+oc pipeline
 ```
-### Building Locally
 
-To get started building this application locally, you can either run the application natively or use the [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) for containerization and easy deployment to IBM Cloud.
+Ensure you have the Cloud-Native Toolkit installed in your cluster to make this method of pipeline registry quick and easy [Cloud-Native Toolkit](https://cloudnativetoolkit.dev/)
 
 #### Native Application Development
 
