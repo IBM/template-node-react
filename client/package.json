@@ -13,8 +13,8 @@
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
     "bfj": "6.1.1",
-    "carbon-components": "^10.3.0",
-    "carbon-components-react": "^6.115.5",
+    "carbon-components": "^10.16.0",
+    "carbon-components-react": "^7.16.0",
     "carbon-icons": "^7.0.7",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
@@ -37,7 +37,7 @@
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "mini-css-extract-plugin": "0.4.3",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -56,7 +56,10 @@
     "webpack": "4.19.1",
     "webpack-dev-server": ">=3.1.11",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3"
+    "workbox-webpack-plugin": "3.6.3",
+    "react-scripts": "^3.4.3",
+    "typescript": "^3.9.7",
+    "typescript-ioc": "^3.2.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
