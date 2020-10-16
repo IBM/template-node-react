@@ -3,5 +3,4 @@
 *.iml
 node_modules
 node_modules/**/*
-client/node_modules
-client/node_modules/**/*
+
