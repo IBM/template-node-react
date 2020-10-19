@@ -2,10 +2,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-12:1-52 AS builder
 
 WORKDIR /opt/app-root/src
 
-RUN mkdir client
-COPY --chown=default:root src client
-COPY src/package*.json client/
-COPY package*.json ./
+
 RUN npm ci
 
 
