@@ -1,6 +1,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-12:1-52 AS builder
 
-WORKDIR /opt/app-root/src
+WORKDIR /opt/app-root
+
 RUN npm ci
 RUN npm run build
 
