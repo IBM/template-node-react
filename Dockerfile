@@ -5,7 +5,7 @@ WORKDIR /opt/app-root/src
 RUN mkdir client
 COPY --chown=default:root src client
 COPY package*.json client/
-RUN npm ci
+
 RUN cd client && npm ci
 
 RUN npm run build
