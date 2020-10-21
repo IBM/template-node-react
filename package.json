@@ -2,7 +2,7 @@
   "name": "template-node-react",
   "version": "0.1.0",
   "private": true,
-  "org": "yourorg",
+  "org": "IBM",
   "description": "12 UI Patterns written with React and Node.js",
   "proxy": "http://localhost:3001",
   "dependencies": {
