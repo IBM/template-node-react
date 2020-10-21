@@ -2,16 +2,11 @@ FROM registry.access.redhat.com/ubi8/nodejs-12:1-52 AS builder
 
 WORKDIR /opt/app-root/src
 
-
-
 COPY --chown=default:root . .
 RUN npm ci
-
-
-
 RUN npm run build
 
-#FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
 
 #COPY --from=builder /opt/app-root/src/build src/build
 #COPY public public
