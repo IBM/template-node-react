@@ -7,6 +7,10 @@ RUN npm ci
 RUN npm run build
 
 FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
+COPY --from=builder /opt/app-root/src/build build
+COPY public public
+COPY server server
+COPY package.json .
 
 #COPY --from=builder /opt/app-root/src/build src/build
 #COPY public public
@@ -14,9 +18,8 @@ FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
 #COPY client/package*.json client/
 #COPY package.json .
 #RUN npm install --production
-COPY --from=builder /opt/app-root/src/build build
 #COPY --from=builder /opt/app-root/src/dist dist
-COPY package.json .
+
 RUN npm install --production
 
 ENV NODE_ENV=production
