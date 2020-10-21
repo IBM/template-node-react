@@ -4,12 +4,9 @@ WORKDIR /opt/app-root/src
 
 
 
-COPY scripts scripts
-COPY --chown=default:root src src
-COPY config  config
-COPY public public
-COPY package*.json ./
+COPY --chown=default:root . .
 RUN npm ci
+
 
 
 RUN npm run build
@@ -22,6 +19,10 @@ RUN npm run build
 #COPY client/package*.json client/
 #COPY package.json .
 #RUN npm install --production
+COPY --from=builder /opt/app-root/src/build build
+COPY --from=builder /opt/app-root/src/dist dist
+COPY package.json .
+RUN npm install --production
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0 PORT=3000
