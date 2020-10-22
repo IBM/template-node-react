@@ -55,7 +55,6 @@ Once the Node toolchain has been installed, you can download the project depende
 
 ```bash
 npm install
-cd client; npm install; cd ..
 npm run build
 npm run start
 ```
@@ -80,7 +79,24 @@ To run your application locally:
 npm run start
 ```
 
+
+To run your application dev mode:
+```bash
+npm run start:dev
+```
+
 Your application will be running at `http://localhost:3000`.  You can access the `/health` and `/appmetrics-dash` endpoints at the host.
+
+***How to remove the one of the design from code patterns***
+
+If you want to remove the one of the design from code pattern.Please follow the below procedure.
+
+The React code pattern having segregated folder structure. Each design pattern having separate folder for Components, Models, Service,View(UI-patterns).
+
+- Remove the design files from Components, Models, Service,View(UI-patterns).
+- Every Design files having the refernce in UI-Shell folder which contains UIShell and  UIShellBody Files. So need remove respective reference.
+
+
 
 <!--
 #### IBM Cloud Developer Tools
