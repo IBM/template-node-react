@@ -12,14 +12,6 @@ COPY public public
 COPY server server
 COPY package.json .
 
-#COPY --from=builder /opt/app-root/src/build src/build
-#COPY public public
-#COPY server server
-#COPY client/package*.json client/
-#COPY package.json .
-#RUN npm install --production
-#COPY --from=builder /opt/app-root/src/dist dist
-
 RUN npm install --production
 
 ENV NODE_ENV=production
