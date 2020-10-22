@@ -14,13 +14,14 @@
 
 # React UI Patterns with Node.js
 
-React is a popular framework for creating user interfaces in modular components. In this sample application, you will create a web application using Express and React to serve web pages in Node.js, complete with standard best practices, including a health check and application metric monitoring.
+React is a popular framework for creating user interfaces in modular components. In this sample application, you will create a web application using Express, TypeScript and React to serve web pages in Node.js, complete with standard best practices, including a health check and application metric monitoring.
 
 This code pattern contains 12 popular UI patterns that make it very easy to construct a dashboard application.
 
 This app contains an opinionated set of components for modern web development, including:
 
 * [React](https://facebook.github.io/react/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Webpack](https://webpack.github.io/)
 * [Sass](http://sass-lang.com/) 
 * [gulp](http://gulpjs.com/)
@@ -89,12 +90,12 @@ Your application will be running at `http://localhost:3000`.  You can access the
 
 ***How to remove the one of the design from code patterns***
 
-If you want to remove the one of the design from code pattern.Please follow the below procedure.
+If you want to remove the one of the design from the code pattern. Please follow the below procedure.
 
 The React code pattern having segregated folder structure. Each design pattern having separate folder for Components, Models, Service,View(UI-patterns).
 
 - Remove the design files from Components, Models, Service,View(UI-patterns).
-- Every Design files having the refernce in UI-Shell folder which contains UIShell and  UIShellBody Files. So need remove respective reference.
+- Every Design files having the reference in UI-Shell folder which contains UIShell and  UIShellBody files. So need to remove respective reference.
 
 
 
