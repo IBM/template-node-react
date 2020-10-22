@@ -14,13 +14,14 @@
 
 # React UI Patterns with Node.js
 
-React is a popular framework for creating user interfaces in modular components. In this sample application, you will create a web application using Express and React to serve web pages in Node.js, complete with standard best practices, including a health check and application metric monitoring.
+React is a popular framework for creating user interfaces in modular components. In this sample application, you will create a web application using Express, TypeScript and React to serve web pages in Node.js, complete with standard best practices, including a health check and application metric monitoring.
 
 This code pattern contains 12 popular UI patterns that make it very easy to construct a dashboard application.
 
 This app contains an opinionated set of components for modern web development, including:
 
 * [React](https://facebook.github.io/react/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Webpack](https://webpack.github.io/)
 * [Sass](http://sass-lang.com/) 
 * [gulp](http://gulpjs.com/)
@@ -35,17 +36,17 @@ Make sure you are logged into the IBM Cloud using the IBM Cloud CLI and have acc
 to you development cluster. If you are using OpenShift make sure you have logged into OpenShift CLI on the command line.
 
 ```$bash
-npm i -g @garage-catalyst/ibm-garage-cloud-cli
+npm install -g @ibmgaragecloud/cloud-native-toolkit-cli
 ```
 
-Use the IBM Garage for Cloud CLI to register the GIT Repo with Jenkins 
+Use the IBM Garage for Cloud CLI to register the GIT Repo with Tekton or Jenkins 
 
 ```$bash
-igc register
+oc sync <project> --dev
+oc pipeline
 ```
-### Building Locally
 
-To get started building this application locally, you can either run the application natively or use the [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) for containerization and easy deployment to IBM Cloud.
+Ensure you have the Cloud-Native Toolkit installed in your cluster to make this method of pipeline registry quick and easy [Cloud-Native Toolkit](https://cloudnativetoolkit.dev/)
 
 #### Native Application Development
 
@@ -55,7 +56,6 @@ Once the Node toolchain has been installed, you can download the project depende
 
 ```bash
 npm install
-cd client; npm install; cd ..
 npm run build
 npm run start
 ```
@@ -80,7 +80,24 @@ To run your application locally:
 npm run start
 ```
 
+
+To run your application dev mode:
+```bash
+npm run start:dev
+```
+
 Your application will be running at `http://localhost:3000`.  You can access the `/health` and `/appmetrics-dash` endpoints at the host.
+
+***How to remove the one of the design from code patterns***
+
+If you want to remove the one of the design from the code pattern. Please follow the below procedure.
+
+The React code pattern having segregated folder structure. Each design pattern having separate folder for Components, Models, Service,View(UI-patterns).
+
+- Remove the design files from Components, Models, Service,View(UI-patterns).
+- Every Design files having the reference in UI-Shell folder which contains UIShell and  UIShellBody files. So need to remove respective reference.
+
+
 
 <!--
 #### IBM Cloud Developer Tools

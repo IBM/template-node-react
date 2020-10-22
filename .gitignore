@@ -12,7 +12,7 @@ index.yaml
 
 # dependencies
 /node_modules
-/client/node_modules
+
 /.pnp
 .pnp.js
 
@@ -21,7 +21,7 @@ index.yaml
 
 # production
 /build
-/client/build
+
 
 # misc
 .DS_Store
