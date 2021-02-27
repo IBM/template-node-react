@@ -7,9 +7,10 @@ COPY --chown=default:root client client
 COPY client/package*.json client/
 COPY package*.json ./
 RUN npm ci
-RUN cd client && npm ci
 
-RUN npm run build
+WORKDIR /opt/app-root/src/client 
+
+RUN npm ci && npm run build
 
 FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
 
