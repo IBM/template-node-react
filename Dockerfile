@@ -26,21 +26,14 @@ ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE 3000/tcp
 
-## Requirement 2: Updated image security content
 USER root
 
-## comment the below line if there are no sec severities
 RUN dnf -y update-minimal --security --sec-severity=Important --sec-severity=Critical && dnf clean all
-
-## Requirement 7: Image License
 
 COPY ./licenses /licenses
 
 USER default
 
-## Requirement 3: Do not modify, replace or combine Red Hat packages or layers is already taken care
-
-## Requirement 6: Image Identification
 LABEL name="React UI Patterns" \
       vendor="IBM" \
       version="v1.0.0" \
