@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-52 AS builder
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-77 AS builder
 
 WORKDIR /opt/app-root/src
 
@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/client
 
 RUN npm ci && npm run build
 
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-77
 
 COPY --from=builder /opt/app-root/src/client/build client/build
 COPY public public
@@ -25,6 +25,28 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE 3000/tcp
+
+## Requirement 2: Updated image security content
+USER root
+
+## comment the below line if there are no sec severities
+RUN dnf -y update-minimal --security --sec-severity=Important --sec-severity=Critical && dnf clean all
+
+## Requirement 7: Image License
+
+COPY ./licenses /licenses
+
+USER default
+
+## Requirement 3: Do not modify, replace or combine Red Hat packages or layers is already taken care
+
+## Requirement 6: Image Identification
+LABEL name="React UI Patterns" \
+      vendor="IBM" \
+      version="v1.0.0" \
+      release="1" \
+      summary="This is an example of a container image." \
+      description="This container image will deploy a React Node App"
 
 CMD ["npm", "start"]
 
