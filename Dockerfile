@@ -43,4 +43,3 @@ LABEL name="ibm/template-node-react" \
       description="This container image will deploy a React Node App"
 
 CMD ["npm", "start"]
-
