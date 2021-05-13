@@ -14,6 +14,7 @@ RUN npm ci && npm run build
 
 FROM registry.access.redhat.com/ubi8/nodejs-12:1-77.1618436962
 
+WORKDIR /opt/app-root/src
 COPY --from=builder /opt/app-root/src/client/build client/build
 COPY public public
 COPY server server
@@ -26,9 +27,10 @@ ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE 3000/tcp
 
-USER root
+
 
 ## Uncomment the below line to update image security content if any
+# USER root
 # RUN dnf -y update-minimal --security --sec-severity=Important --sec-severity=Critical && dnf clean all 
 
 COPY ./licenses /licenses
