@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-52 AS builder
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-77.1618436962 AS builder
 
 WORKDIR /opt/app-root/src
 
@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/client
 
 RUN npm ci && npm run build
 
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-52
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-77.1618436962
 
 COPY --from=builder /opt/app-root/src/client/build client/build
 COPY public public
@@ -26,5 +26,20 @@ ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE 3000/tcp
 
-CMD ["npm", "start"]
+USER root
 
+## Uncomment the below line to update image security content if any
+# RUN dnf -y update-minimal --security --sec-severity=Important --sec-severity=Critical && dnf clean all 
+
+COPY ./licenses /licenses
+
+USER default
+
+LABEL name="ibm/template-node-react" \
+      vendor="IBM" \
+      version="1" \
+      release="77.1618436962" \
+      summary="This is an example of a container image." \
+      description="This container image will deploy a React Node App"
+
+CMD ["npm", "start"]
