@@ -1,0 +1,8 @@
+{
+    "HZN_ORG_ID": "dow",
+    "MetadataVars": {
+        "DOCKER_IMAGE_BASE": "default-route-openshift-image-registry.dow-mvp-0063h00000ekgoj-afb9c6047b062b44e3f1b3ecfeba4309-0000.us-south.containers.appdomain.cloud/edge-dashboard",
+        "SERVICE_NAME": "d",
+        "SERVICE_VERSION": "2.0.0"
+    }
+}

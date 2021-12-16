@@ -38,12 +38,19 @@ to you development cluster. If you are using OpenShift make sure you have logged
 npm install -g @ibmgaragecloud/cloud-native-toolkit-cli
 ```
 
-Use the IBM Garage for Cloud CLI to register the GIT Repo with Tekton or Jenkins 
+Use the IBM Garage for Cloud CLI to register the GIT Repo with Tekton or Jenkins.  
+
+If you are using the [Edge Application Manager (EAM)](https://www.ibm.com/docs/en/eam/4.3) for deployment, select the `ibm-nodejs-edge` pipeline.  
 
 ```$bash
 oc sync <project> --dev
 oc pipeline
 ```
+
+If using [Edge Application Manager (EAM)](https://www.ibm.com/docs/en/eam/4.3), note the following:
+-   The `ibm-nodejs-edge` pipeline task `edge-gitop` invokes the *publish-service* rule in the [Makefile](./Makefile) to publish the service into the EAM HUB and requires the *edge-access* secret defined in the OCP project.  See [create-edge-pipeline-secret-yaml.sh](./horizon/scripts/create-edge-pipeline-secret-yaml.sh).
+-   A [deployment policy](https://www.ibm.com/docs/en/eam/4.3?topic=services-deployment-policy-use-cases) is required to deploy the service to a device node. See the [Makefile](./Makefile) rules (*publish-deployment-policy* and *register-policy*) for more details.
+
 
 Ensure you have the Cloud-Native Toolkit installed in your cluster to make this method of pipeline registry quick and easy [Cloud-Native Toolkit](https://cloudnativetoolkit.dev/)
 
