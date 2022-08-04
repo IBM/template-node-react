@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-77.1618436962 AS builder
+FROM registry.redhat.io/rhel9/nodejs-16:1-44 AS builder
 
 WORKDIR /opt/app-root/src
 
@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/client
 
 RUN npm ci && npm run build
 
-FROM registry.access.redhat.com/ubi8/nodejs-12:1-77.1618436962
+FROM registry.redhat.io/rhel9/nodejs-16:1-44
 
 WORKDIR /opt/app-root/src
 COPY --from=builder /opt/app-root/src/client/build client/build
