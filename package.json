@@ -5,7 +5,7 @@
   "description": "12 UI Patterns written with React and Node.js",
   "private": true,
   "engines": {
-    "node": "^8.11.1"
+    "node": "^16.0.0"
   },
   "scripts": {
     "start": "node server/server.js",

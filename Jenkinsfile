@@ -53,7 +53,7 @@ spec:
       name: varlibcontainers
   containers:
     - name: node
-      image: node:12-stretch
+      image: nodejs-16:1-44
       tty: true
       command: ["/bin/bash"]
       workingDir: ${workingDir}
