@@ -5,10 +5,10 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@babel/core": "7.1.0",
-    "@svgr/webpack": "2.4.1",
+    "@svgr/webpack": "4.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "24.0.0",
     "babel-loader": "8.0.4",
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
@@ -18,7 +18,7 @@
     "carbon-icons": "^7.0.7",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
-    "css-loader": "1.0.0",
+    "css-loader": "2.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "eslint": "5.6.0",
@@ -31,14 +31,14 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
-    "html-webpack-plugin": "4.0.0-alpha.2",
+    "html-webpack-plugin": "4.0.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "23.6.0",
+    "jest": "24.0.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "mini-css-extract-plugin": "0.4.3",
-    "node-sass": "^4.12.0",
-    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "node-sass": "^7.0.2",
+    "optimize-css-assets-webpack-plugin": "5.0.5",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
@@ -46,24 +46,27 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.6.3",
     "react-app-polyfill": "^0.1.3",
-    "react-dev-utils": "^6.1.1",
+    "react-dev-utils": "^12.0.0",
     "react-dom": "^16.6.3",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
-    "terser-webpack-plugin": "1.1.0",
+    "terser-webpack-plugin": "1.4.4",
     "url-loader": "1.1.1",
-    "webpack": "4.19.1",
-    "webpack-dev-server": ">=3.1.11",
+    "webpack": "4.26.0",
+    "webpack-dev-server": ">=4.0.0",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3"
+    "workbox-webpack-plugin": "3.6.3",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "CI=true node scripts/test.js",
     "test:coverage": "CI=true node scripts/test.js --coverage",
-    "tdd": "node scripts/test.js"
+    "tdd": "node scripts/test.js",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -123,5 +126,6 @@
   "devDependencies": {
     "@types/jest": "^24.0.21",
     "@types/react": "^16.9.11"
-  }
+  },
+  "snyk": true
 }
