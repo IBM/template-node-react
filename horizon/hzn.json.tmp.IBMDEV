@@ -1,0 +1,9 @@
+{
+    "HZN_ORG_ID": "yourorg",
+    "MetadataVars": {
+        "DOCKER_IMAGE_BASE": "XXXX.us-south.containers.appdomain.cloud/edge-react",
+        "SERVICE_NAME": "template-node-react",
+        "SERVICE_VERSION": "1.0.0"
+    }
+}
+
