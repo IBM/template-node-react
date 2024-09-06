@@ -35,7 +35,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-http-proxy": "^1.6.0",
-    "ibm-cloud-env": "^0",
+    "ibm-cloud-env": "^0.3.0",
     "log4js": "^3.0.5",
     "node-sass": "^4.12.0"
   },
