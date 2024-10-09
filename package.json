@@ -32,8 +32,8 @@
   "dependencies": {
     "client": "file:./client",
     "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1",
     "express-http-proxy": "^1.6.0",
     "ibm-cloud-env": "^0",
     "log4js": "^3.0.5",
